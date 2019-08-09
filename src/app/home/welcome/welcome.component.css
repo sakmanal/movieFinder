@@ -1,0 +1,148 @@
+  .showcase::after {
+    content: '';
+    height: 100vh;
+    width: 100%;
+    background-image: url(../../../assets/img/adult-bar-cafe-cinema.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+  }
+  
+
+  .content {
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 50%;
+    margin-top: 90px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+  }
+  
+  .content .logo {
+    height: 180px;
+    width: 180px;
+  }
+  
+  .content .title {
+    font-size: 2.2rem;
+    margin-top: 1rem;
+  }
+
+  .mv{
+    font-family: 'Poller One', cursive;
+  }
+  
+  .content .text {
+    line-height: 1.7;
+    margin-top: 1rem;
+  }
+
+  .content button{
+    margin-top: 1rem;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+  }
+  
+  .grid-3 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid-2 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .center {
+    text-align: center;
+    margin: auto;
+  }
+  
+  .bg-light {
+    background: #f4f4f4;
+    color: #333;
+  }
+  
+  .bg-dark {
+    background: #333;
+    color: #f4f4f4;
+  }
+  
+  footer {
+    padding: 2.2rem;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+
+
+  p.footer-links a{
+	text-decoration: none;
+}
+
+  .footer-links a:visited{
+    color: rgb(255, 255, 255);
+ }
+ 
+ .footer-links a:hover {
+     color: #6C63FF;
+     text-decoration:none;
+   }
+  
+  /* Small Screens */
+  @media (max-width: 560px) {
+    .showcase::after {
+      height: 50vh;
+    }
+  
+    .content {
+      top: 5%;
+      margin-top: 5px;
+    }
+  
+    .content .logo {
+      height: 140px;
+      width: 140px;
+    }
+  
+    .content .text {
+      display: none;
+    }
+  
+    .grid-3,
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+  
+    .services div {
+      border-bottom: #333 dashed 1px;
+      padding: 1.2rem 1rem;
+    }
+  }
+  
+  /* Landscape */
+  @media (max-height: 500px) {
+    .content .title,
+    .content .text {
+      display: none;
+    }
+  
+    .content {
+      top: 0;
+    }
+  }
+  
