@@ -27,3 +27,7 @@ toolbar{
   font-weight: bold;
   color: #6C63FF;
 }
+
+.git-btn{
+  text-decoration: none;
+}

@@ -63,10 +63,13 @@
                         <span class="menu-item">Add Movie</span>
                 </button>
         </span>
-        <button mat-menu-item>
+        <a target="_blank" class="git-btn" href="https://github.com/sakmanal">
+            <button mat-menu-item>
                 <i class="fab fa-github-alt"></i>
                 <span class="menu-item">GitHub</span>
-        </button>
+            </button>
+        </a>
+       
         <button mat-menu-item *ngIf="isLoggedIn" (click)="logOut()">
                 <i class="fas fa-sign-out-alt"></i>
                 <span class="menu-item">Log Out</span>

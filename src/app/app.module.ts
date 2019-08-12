@@ -9,6 +9,9 @@ import { ShellComponent } from './home/shell/shell.component';
 import { MenuComponent } from './home/menu/menu.component';
 import { PageNotFoundComponent } from './home/page-not-found.component';
 
+/* Feature Modules */
+import { UserModule } from './user/user.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,8 @@ import { PageNotFoundComponent } from './home/page-not-found.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
