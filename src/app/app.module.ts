@@ -9,6 +9,11 @@ import { ShellComponent } from './home/shell/shell.component';
 import { MenuComponent } from './home/menu/menu.component';
 import { PageNotFoundComponent } from './home/page-not-found.component';
 
+import { HttpClientModule } from '@angular/common/http';
+// Imports for loading & configuring the in-memory web api
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { MovieData } from './movie/movie-data';
+
 /* Feature Modules */
 import { UserModule } from './user/user.module';
 
@@ -25,7 +30,9 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    UserModule
+    UserModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(MovieData, { delay: 1000, dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]

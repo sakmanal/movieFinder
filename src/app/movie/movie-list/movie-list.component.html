@@ -1,1 +1,49 @@
-<p>movie-list works!</p>
+<app-spinner [loading]="load"></app-spinner>
+<div *ngIf="movies && movies.length" class="main">
+  <span *ngFor="let movie of movies">
+        <div class="movie_card" id="bright">
+                <div class="info_section">
+                  <div class="movie_header">
+                    <img class="locandina" src="{{movie.imageurl}}"/>
+                    <h1>{{movie.title}}</h1>
+                    <h4><span class="date">({{ movie.releaseDate | date}})</span> {{movie.director}}</h4>
+                    <span class="minutes">117 min</span>
+                    <p class="category">{{movie.category}}</p>
+                    <p class="mpaa">{{ movie.mpaa | uppercase }}</p>
+                    <p class="type">{{ movie.price | currency:'USD':'symbol' }}</p>
+                  </div>
+                   
+                  <div class="movie_desc">
+                    <p class="text">
+                            {{movie.description}} 
+                            <app-star [rating]="movie.starRating"></app-star>
+                            <span class="approvalRating">{{ movie.approvalRating | percent: '1.0-0'}}</span>
+                    </p>
+                  </div>
+                  <div class="movie_social">
+                     <button mat-raised-button color="warn">
+                        <i class="fas fa-shopping-cart"></i> 
+                        Buy Now
+                     </button>
+                     <button mat-raised-button color="accent" style="margin-left:5px">
+                            <i class="fas fa-thumbs-up"></i>
+                            Like
+                     </button>
+                     <button mat-raised-button color="primary" [routerLink]="['/movies', movie.id, 'edit']" style="margin-left:5px">
+                            <i class="fas fa-edit"></i>
+                            Edit
+                     </button>
+                     
+                  </div>
+                </div>
+                <div class="blur_back" [ngStyle]="{'background-image': 'url(' + movie.imageurl + ')'}"></div>
+              </div>
+  </span>  
+    
+
+</div>
+
+<div class="alert"
+       *ngIf='errorMessage'>
+    Error: {{ errorMessage }}
+</div>
