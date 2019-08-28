@@ -17,14 +17,14 @@ export class AppComponent {
 
   checkRouterEvent(routerEvent: Event): void {
     if (routerEvent instanceof NavigationStart) {
-      //console.log('nav start');
+      console.log('nav start');
       this.loading = true;
     }
 
     if (routerEvent instanceof NavigationEnd ||
       routerEvent instanceof NavigationCancel ||
       routerEvent instanceof NavigationError) {
-        //console.log('nav end');
+        console.log('nav end');
         this.loading = false;
     }
   }

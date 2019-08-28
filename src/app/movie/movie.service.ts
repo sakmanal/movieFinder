@@ -38,5 +38,39 @@ export class MovieService {
     console.error(err);
     return throwError(errorMessage);
   }
+  
+  getMovie(id: number): Observable<Movie> {
+    if (id === 0) {
+      return of(this.initializeMovie());
+    }
+    const url = `${this.moviesUrl}/${id}`;
+    return this.http.get<Movie>(url)
+      .pipe(
+        //no need to log stringify data
+        //tap(data => console.log('Data: ' + JSON.stringify(data))),
+        tap(data => console.log(data)),
+        catchError(this.handleError)
+      );
+  }
+
+  private initializeMovie(): Movie {
+    // Return an initialized object
+    return {
+      id: 0,
+      approvalRating: null,
+      description: '',
+      director: '',
+      imageurl: '',
+      mpaa: '',
+      price: null,
+      releaseDate: '',
+      starRating: null,
+      title: '',
+      category: '',
+      tags: []
+    };
+  }
+
+
 
 }

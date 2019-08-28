@@ -1,11 +1,18 @@
 <app-spinner [loading]="load"></app-spinner>
+    
 <div *ngIf="movies && movies.length" class="main">
-  <span *ngFor="let movie of movies">
+
+    <form class="example">
+      <input type="text" placeholder="Search.." name="search2" [(ngModel)]="listFilter">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+
+  <span *ngFor="let movie of filteredMovies">
         <div class="movie_card" id="bright">
                 <div class="info_section">
                   <div class="movie_header">
                     <img class="locandina" src="{{movie.imageurl}}"/>
-                    <h1>{{movie.title}}</h1>
+                    <h1 [routerLink]="['/movies', movie.id]" class="title">{{movie.title}}</h1>
                     <h4><span class="date">({{ movie.releaseDate | date}})</span> {{movie.director}}</h4>
                     <span class="minutes">117 min</span>
                     <p class="category">{{movie.category}}</p>

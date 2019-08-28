@@ -12,7 +12,7 @@
                #loginForm="ngForm" 
                autocomplete="off">
           <p>
-            <mat-form-field color="warn">
+            <mat-form-field color="warn" appearance="outline">
               <input type="text" 
                      matInput 
                      placeholder="Username"
@@ -23,13 +23,13 @@
               <mat-label><i class="fas fa-user"></i></mat-label>
               <mat-label class="label">Type your User name</mat-label>    
               <mat-error *ngIf="userNameVar.errors?.required">
-                User name is required.
+                User name is <strong>required</strong>.
               </mat-error>
             </mat-form-field>
           </p>
 
           <p>
-            <mat-form-field color="warn">
+            <mat-form-field color="warn" appearance="outline">
               <input type="password" 
                      matInput 
                      placeholder="Password" 
@@ -47,7 +47,7 @@
               <mat-label><i class="fas fa-unlock-alt"></i></mat-label>
               <mat-label class="label">Type your Password</mat-label>  
               <mat-error *ngIf="passwordVar.errors?.required">
-                Password is required.
+                Password is <strong>required</strong>.
               </mat-error>
             </mat-form-field>
           </p>
