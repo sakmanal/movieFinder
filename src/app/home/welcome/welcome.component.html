@@ -7,7 +7,10 @@
       <div class="text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, vel.
       </div>
-      <button mat-flat-button color="accent">Explore</button>
+      <button mat-flat-button color="accent" 
+              routerLinkActive='active'
+              [routerLinkActiveOptions]="{ exact: true }"
+              routerLink='/movies'>Explore</button>
     </div>
   </header>
 
