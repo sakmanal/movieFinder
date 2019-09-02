@@ -7,8 +7,8 @@
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
 
-  <span *ngFor="let movie of filteredMovies">
-        <div class="movie_card" id="bright">
+  <span *ngFor="let movie of filteredMovies; let i = index" >
+              <div class="movie_card" id="bright" [attr.data-aos] = " i % 2 == 0 ? 'fade-right' : 'fade-left'">
                 <div class="info_section">
                   <div class="movie_header">
                     <img class="locandina" src="{{movie.imageurl}}"/>

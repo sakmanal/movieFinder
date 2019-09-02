@@ -20,11 +20,6 @@
   margin: 100px auto; 
   overflow: hidden;
   border-radius: 10px;
-  transition: all 0.4s;
-  &:hover{
-    transform: scale(1.03);
-    transition: all 0.4s;
-  }
   .info_section{
     position: relative;
     width: 100%;
@@ -187,7 +182,7 @@
 form.example input[type=text] {
   padding: 10px;
   font-size: 17px;
-  border: 1px solid grey;
+  border: 1px solid #f1f1f1;
   float: left;
   width: 80%;
   background: #f1f1f1;
@@ -200,7 +195,7 @@ form.example button {
   background: #2196F3;
   color: white;
   font-size: 17px;
-  border: 1px solid grey;
+  border: 1px solid #2196F3;
   border-left: none;
   cursor: pointer;
 }

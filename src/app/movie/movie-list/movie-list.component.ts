@@ -3,6 +3,8 @@ import { MovieService } from '../movie.service';
 import { Movie } from '../movie';
 import { MovieParameterService } from '../movie-parameter.service';
 
+import * as AOS from 'aos';
+
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -31,6 +33,11 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
+
+    AOS.init({
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 1000 // values from 0 to 3000, with step 50ms
+    });
   }
   
   getMovies(): void {
