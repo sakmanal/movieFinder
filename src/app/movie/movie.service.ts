@@ -71,6 +71,43 @@ export class MovieService {
     };
   }
 
+  saveMovie(movie: Movie): Observable<Movie> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    if (movie.id === 0) {
+      return this.createMovie(movie, headers);
+    }
+    return this.updateMovie(movie, headers);
+  }
+
+  private createMovie(movie: Movie, headers: HttpHeaders): Observable<Movie> {
+    movie.id = null;
+    return this.http.post<Movie>(this.moviesUrl, movie, { headers })
+      .pipe(
+        tap(data => console.log('createMovie: ' + JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
+  private updateMovie(movie: Movie, headers: HttpHeaders): Observable<Movie> {
+    const url = `${this.moviesUrl}/${movie.id}`;
+    return this.http.put<Movie>(url, movie, { headers })
+      .pipe(
+        tap(data => console.log('updateMovie: ' + movie.id)),
+        catchError(this.handleError)
+      );
+  }
+
+  deleteMovie(id: number): Observable<{}> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    const url = `${this.moviesUrl}/${id}`;
+    return this.http.delete<Movie>(url, { headers })
+      .pipe(
+        tap(data => console.log('deleteMovie: ' + JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
 
 
 }

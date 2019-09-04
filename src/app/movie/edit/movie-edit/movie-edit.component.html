@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+ 
+  <div class="wizard">
+      <a [routerLink]="['info']"
+         routerLinkActive="active">
+        Basic Information
+        <span [ngClass]="{'fa fa-exclamation': !isValid('info')}"></span>
+      </a>
+      <a [routerLink]="['tags']"
+         routerLinkActive="active">
+        Search Tags
+        <span [ngClass]="{'fa fa-exclamation': !isValid('tags')}"></span>
+      </a>
+    </div>
+
+
+    <router-outlet></router-outlet>
+
+    <div class="row">
+   
+        <button mat-raised-button 
+                color="warn"
+                style="margin-right:5px"
+                [disabled]="!isValid()"
+                (click)="saveMovie()">
+          <i class="fas fa-save"></i>  
+          Save
+        </button>
+        <button mat-raised-button
+                color="warn"
+                style="margin-right:5px"
+                (click)="deleteMovie()">
+          <i class="fas fa-trash-alt"></i>      
+          Delete
+        </button>
+        <button mat-raised-button
+                color="primary"                
+                [routerLink]="['/movies']">
+          Cancel
+        </button>
+         
+    </div>
+  </div>
+
+
+<div class="alert" *ngIf="errorMessage">
+  {{errorMessage}}
+</div>

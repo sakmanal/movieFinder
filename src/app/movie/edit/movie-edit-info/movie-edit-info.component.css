@@ -1,0 +1,41 @@
+fieldset {
+  padding:0 10px;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    padding: 0 5px;
+    font-size: 17px;
+    border: 1px solid #3F51B5;
+    color: white;
+    background: #424242;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box; 
+}
+
+
+textarea {
+    resize: vertical;
+    width: 100%;
+    padding: 3px 5px;
+    font-size: 13px;
+    border: 1px solid #3F51B5;
+    color: white;
+    background: #424242;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box; 
+}
+
+input.is-invalid {
+    border: 2px solid rgb(233, 57, 57);
+   /*  background: #c95353; */
+}
+
+.invalid-feedback{
+     color: rgb(233, 57, 57);
+     font-size: 12px;
+
+}

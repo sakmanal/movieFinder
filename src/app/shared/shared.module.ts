@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { SpinnerComponent } from './spinner/spinner.component';
 import { StarComponent } from './star/star.component';
+
+import { RangeValidatorDirective } from './range.directive';
 
 
 
 @NgModule({
   declarations: [
     SpinnerComponent,
-    StarComponent
+    StarComponent,
+    RangeValidatorDirective
   ],
   imports: [
     CommonModule
@@ -16,7 +20,8 @@ import { StarComponent } from './star/star.component';
   exports: [
     CommonModule,
     SpinnerComponent,
-    StarComponent
+    StarComponent,
+    RangeValidatorDirective
   ]
 })
 export class SharedModule { }

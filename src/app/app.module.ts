@@ -17,13 +17,14 @@ import { MovieData } from './movie/movie-data';
 /* Feature Modules */
 import { UserModule } from './user/user.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     ShellComponent,
     MenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
