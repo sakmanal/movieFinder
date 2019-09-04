@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../../movie';
 import { MovieService } from '../../movie.service';
 
+import {of} from 'rxjs';
+
 @Component({
   selector: 'app-movie-edit',
   templateUrl: './movie-edit.component.html',
@@ -29,7 +31,14 @@ export class MovieEditComponent implements OnInit {
     return this.currentMovie;
   }
   set movie(movie: Movie) {
+
+    //currentMovie is the same as movie (same reference)
+    //every time movie changes(e.g. from movie-edit-component) -> currentMovie changes too !!
     this.currentMovie = movie;
+     
+    //above behavior can be logged here
+    //setInterval( () => {console.log(this.currentMovie.director)}, 5000 );
+    
     // Clone the object to retain a copy
     this.originalMovie = Object.assign({}, movie);
   }
@@ -46,6 +55,10 @@ export class MovieEditComponent implements OnInit {
       const movie = data[dataName];
       this.onMovieRetrieved(movie);
     });
+
+    //works the same
+    //const m = this.route.snapshot.data["movie"];
+    //this.onMovieRetrieved(m); 
   }
 
   onMovieRetrieved(movie: Movie): void {
