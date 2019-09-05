@@ -50,13 +50,15 @@ export class MovieEditComponent implements OnInit {
   ngOnInit() {
     //use resolver to get the movie
     // Watch for changes to the resolve data 
+    //if we press add-new-movie button (same component as this) 
+    //below code executes again because we have subscribed to the resole data
     this.route.data.subscribe(data => {
       const dataName = 'movie';
       const movie = data[dataName];
       this.onMovieRetrieved(movie);
     });
 
-    //works the same
+    //not working the same--executes only once
     //const m = this.route.snapshot.data["movie"];
     //this.onMovieRetrieved(m); 
   }

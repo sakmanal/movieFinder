@@ -29,7 +29,7 @@ const movieRoutes: Routes = [
   {
     path: ':id/edit',
     resolve: { movie: MovieResolver },
-    canDeactivate: [MovieEditGuard],   // prevents switching route (navigate to different path from id/edit)
+    canDeactivate: [MovieEditGuard],   // prevents switching route (navigate to different path from :id/edit)
     component: MovieEditComponent,
     children: [
       { path: '', redirectTo: 'info', pathMatch: 'full' },

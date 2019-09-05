@@ -10,7 +10,6 @@ import { Movie } from '../movie';
 export class MovieDetailComponent implements OnInit {
 
   movie: Movie;
-  errorMessage: string;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 

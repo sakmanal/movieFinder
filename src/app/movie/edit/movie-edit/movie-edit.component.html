@@ -1,4 +1,10 @@
 <div class="card">
+
+    <!-- error message cannot be displaed because save button will be disable when form is inValid -->
+    <div class="alert" *ngIf="errorMessage && !isValid()">
+        {{errorMessage}}
+    </div>
+
   <div class="card-header">
     {{pageTitle}}
   </div>
@@ -46,6 +52,3 @@
   </div>
 
 
-<div class="alert" *ngIf="errorMessage">
-  {{errorMessage}}
-</div>

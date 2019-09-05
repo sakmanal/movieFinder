@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { Movie } from '../../movie';
+import { log } from 'util';
 
 @Component({
   selector: 'app-movie-edit-info',
@@ -12,7 +13,6 @@ import { Movie } from '../../movie';
 export class MovieEditInfoComponent implements OnInit {
 
   @ViewChild(NgForm, { static: true }) movieForm: NgForm;
-  errorMessage: string;
   movie: Movie;
 
   constructor(private route: ActivatedRoute) { }
@@ -23,11 +23,13 @@ export class MovieEditInfoComponent implements OnInit {
     this.route.parent.data.subscribe(data => {
       const dataName = 'movie';
       this.movie = data[dataName];
-
+      
+      //reset form 
       if (this.movieForm) {
         this.movieForm.reset();
       }
     });
+
   }
 
 }
