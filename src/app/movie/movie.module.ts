@@ -12,6 +12,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieEditComponent } from './edit/movie-edit/movie-edit.component';
 import { MovieEditInfoComponent } from './edit/movie-edit-info/movie-edit-info.component';
 import { MovieEditTagsComponent } from './edit/movie-edit-tags/movie-edit-tags.component';
+import { InputSearchComponent } from './input-search/input-search.component';
 
 
 import { MovieResolver } from './movie.resolver';
@@ -46,7 +47,8 @@ const movieRoutes: Routes = [
     MovieDetailComponent,
     MovieEditComponent,
     MovieEditInfoComponent,
-    MovieEditTagsComponent
+    MovieEditTagsComponent,
+    InputSearchComponent
   ],
   imports: [
     CommonModule,

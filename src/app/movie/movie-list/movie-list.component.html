@@ -2,10 +2,25 @@
     
 <div *ngIf="movies && movies.length" class="main">
 
-    <form class="example">
+   <!--  <form class="example">
       <input type="text" placeholder="Search.." name="search2" [(ngModel)]="listFilter">
       <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    </form> -->
+    <header>
+
+      <div class="flex-container">
+          <div class="search">
+                <app-input-search (message)="getfilter($event)"></app-input-search>
+          </div>
+
+          <div class="pageTitle">
+              {{pageTitle}}
+          </div>
+      </div>
+ 
+    </header>   
+  
+    
 
   <span *ngFor="let movie of filteredMovies; let i = index" >
               <div class="movie_card" id="bright" [attr.data-aos] = " i % 2 == 0 ? 'fade-right' : 'fade-left'">
@@ -28,9 +43,9 @@
                     </p>
                   </div>
                   <div class="movie_social">
-                     <button mat-raised-button color="warn">
-                        <i class="fas fa-shopping-cart"></i> 
-                        Buy Now
+                     <button mat-raised-button color="warn" [routerLink]="['/movies', movie.id]">
+                       <i class="fas fa-info-circle"></i> 
+                        Details
                      </button>
                      <button mat-raised-button color="accent" style="margin-left:5px">
                             <i class="fas fa-thumbs-up"></i>

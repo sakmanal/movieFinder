@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-search',
   templateUrl: './movie-search.component.html',
   styleUrls: ['./movie-search.component.css']
 })
-export class MovieSearchComponent implements OnInit {
+export class MovieSearchComponent {
 
-  constructor() { }
+  pageTitle = 'Advanced Search';
 
-  ngOnInit() {
+  constructor(private router: Router) { }
+
+  search(criteria): void {
+    this.router.navigate(['/movies'], { queryParams: criteria });
   }
 
 }

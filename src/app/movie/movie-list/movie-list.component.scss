@@ -5,6 +5,35 @@
   margin: 0;
 }
 
+header {
+  position: relative;
+  max-width: 100%;
+  display: block;
+  overflow: hidden;
+  background: #21212163;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.80), 0 6px 6px rgba(0,0,0,0.50);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 3px 0;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+.pageTitle {
+  font-size: 30px; 
+  padding-top: 35px;
+  margin-left: 20px;
+}
+
+
+
+
+
 .main{
   margin: 0;
   font-family: 'Montserrat', helvetica, arial, sans-serif;
@@ -19,7 +48,7 @@
   display: block;
   max-width: 800px;
   height: 350px;
-  margin: 100px auto; 
+  margin: 50px auto; 
   overflow: hidden;
   border-radius: 10px;
   .info_section{
@@ -177,42 +206,6 @@
    color: #a5fa9a;
 }
 
-.example {
-  max-width: 300px;
-  margin:auto;
-  margin-top: 20px;
-}
-
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid #f1f1f1;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
-
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid #2196F3;
-  border-left: none;
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: #0b7dda;
-}
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
 .title {
   cursor: pointer;
 }

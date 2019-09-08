@@ -1,1 +1,68 @@
+<form novalidate autocomplete="off">
+  <fieldset>
+        <legend>Movie Search Tags</legend>
 
+        <p>
+            <label>Category:</label>
+            <input id="categoryId"
+                   type="text"
+                   placeholder="Category (required)"
+                   required
+                   minlength="3"
+                   [(ngModel)]="movie.category"
+                   name="category"
+                   #categoryVar="ngModel"
+                   [ngClass]="{'is-invalid': (categoryVar.touched || categoryVar.dirty || movie.id !== 0) && !categoryVar.valid }" />
+
+            <span class="invalid-feedback">
+                <span *ngIf="categoryVar.errors?.required">
+                    A category must be entered.
+                </span>
+                <span *ngIf="categoryVar.errors?.minlength">
+                    The category must be at least 3 characters in length.
+                </span>
+            </span>                            
+        </p>
+
+        <p class="flex-container">
+            <label>Search Tags:</label>
+              <span class="tag">
+                    <input id="tagsId"
+                         type="text"
+                         placeholder="Search keywords separated by commas"
+                         minlength="3"
+                         [(ngModel)]="newTags"
+                         name="tags"
+                         #tagVar="ngModel"
+                         [ngClass]="{'is-invalid': (tagVar.touched || tagVar.dirty || movie.id !== 0) && !tagVar.valid }" /> 
+                    <button
+                        class="btn"
+                        title="Add the entered search tags"
+                        (click)="addTags()">
+                       Add
+                    </button>
+                </span>
+                     
+            <span class="invalid-feedback">
+                <span *ngIf="tagVar.errors?.minlength">
+                    The search tag must be at least 3 characters in length.
+                </span>
+            </span>     
+        </p>
+
+        <p>
+            <mat-chip-list>
+                    <mat-chip *ngFor="let tag of movie.tags; let i = index" 
+                              (removed)="removeTag(i)"
+                              [color]="i % 2 == 0 ? 'warn' : 'accent'"
+                              selected>
+                     {{tag}}
+                     <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+            </mat-chip-list>  
+        </p>
+
+
+
+  </fieldset>
+</form>
