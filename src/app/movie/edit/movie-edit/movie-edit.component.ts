@@ -4,8 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../../movie';
 import { MovieService } from '../../movie.service';
 
-import {of} from 'rxjs';
-
 @Component({
   selector: 'app-movie-edit',
   templateUrl: './movie-edit.component.html',

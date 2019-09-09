@@ -13,6 +13,7 @@ import { MovieEditComponent } from './edit/movie-edit/movie-edit.component';
 import { MovieEditInfoComponent } from './edit/movie-edit-info/movie-edit-info.component';
 import { MovieEditTagsComponent } from './edit/movie-edit-tags/movie-edit-tags.component';
 import { InputSearchComponent } from './input-search/input-search.component';
+import { MovieEditReactiveComponent } from './edit/movie-edit-reactive/movie-edit-reactive.component';
 
 
 import { MovieResolver } from './movie.resolver';
@@ -37,7 +38,12 @@ const movieRoutes: Routes = [
       { path: 'info', component: MovieEditInfoComponent },
       { path: 'tags', component: MovieEditTagsComponent }
     ]
-  }
+  },
+  {
+    path: ':id/editReactive',
+    resolve: { movie: MovieResolver },
+    component: MovieEditReactiveComponent
+  },
 ]
 
 @NgModule({
@@ -48,7 +54,8 @@ const movieRoutes: Routes = [
     MovieEditComponent,
     MovieEditInfoComponent,
     MovieEditTagsComponent,
-    InputSearchComponent
+    InputSearchComponent,
+    MovieEditReactiveComponent
   ],
   imports: [
     CommonModule,

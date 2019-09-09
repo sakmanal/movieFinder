@@ -1,0 +1,86 @@
+<div class="card">
+
+    <div class="alert" *ngIf="errorMessage">
+            {{errorMessage}}
+    </div>
+
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+    
+    <div *ngIf="movie">
+      <form novalidate [formGroup]="editForm" (ngSubmit)="saveMovie()" autocomplete="off">
+    
+            <p>
+                <label>Movie Title:</label>
+                <input  id="inputMovieTitle"
+                        type="text"
+                        placeholder="Title (required)"
+                        formControlName="title"
+                        [ngClass]="{'is-invalid': formError.title }" />
+                <span class="invalid-feedback">
+                    {{formError.title}}
+                </span> 
+            </p>
+    
+            <p>
+                <label>Director:</label>
+                <input  id="inputDirector"
+                        type="text"
+                        placeholder="Director (required)"
+                        formControlName="director"
+                        [ngClass]="{'is-invalid': formError.director }" />
+                <span class="invalid-feedback">
+                    {{formError.director}}
+                </span>  
+            </p>
+    
+            <p>
+                <label>Star Rating (1-5):</label>
+                <input id="inputStarRating"
+                       type="text"
+                       placeholder="Rating"
+                       formControlName="starRating"
+                       [ngClass]="{'is-invalid': formError.starRating}" />
+                <span class="invalid-feedback">
+                    {{formError.starRating}}
+                </span> 
+            </p>
+    
+            <p>
+                <label>Description:</label>
+                <textarea id="inputMovieDescription"
+                          placeholder="Description"
+                          rows=3
+                          formControlName="description"
+                          [ngClass]="{'is-invalid': formError.description}"></textarea>
+                <span class="invalid-feedback">
+                    {{ formError.description}}
+                </span>         
+            </p>
+    
+   
+    
+      </form>
+
+      <div class="row">
+   
+        <button mat-raised-button 
+                color="warn"
+                style="margin-right:5px"
+                (click)="saveMovie()"
+                [disabled]='!editForm.valid'>
+          <i class="fas fa-save"></i>  
+          Save
+        </button>
+
+        <button mat-raised-button
+                color="primary"  
+                type="button"              
+                [routerLink]="['/movies']">
+          Cancel
+        </button>
+         
+      </div>
+    </div>
+</div>

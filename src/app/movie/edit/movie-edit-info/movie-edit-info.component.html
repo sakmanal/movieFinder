@@ -4,77 +4,74 @@
         <legend>Basic Movie Information</legend>
 
         <p>
-        <label>Movie Title:</label>
-        <input  id="inputMovieTitle"
-                type="text"
-                placeholder="Title (required)"
-                required
-                minlength="3"
-                maxlength="50"
-                [(ngModel)]="movie.title"
-                name="title"
-                #titleVar="ngModel"
-                [ngClass]="{'is-invalid': (titleVar.touched || titleVar.dirty) && !titleVar.valid }" />
-        <span class="invalid-feedback">
-            <span *ngIf="titleVar.errors?.required">
-                Please enter a movie title.
+            <label>Movie Title:</label>
+            <input  id="inputMovieTitle"
+                    type="text"
+                    placeholder="Title (required)"
+                    required
+                    minlength="3"
+                    maxlength="50"
+                    [(ngModel)]="movie.title"
+                    name="title"
+                    #titleVar="ngModel"
+                    [ngClass]="{'is-invalid': (titleVar.touched || titleVar.dirty) && !titleVar.valid }" />
+            <span class="invalid-feedback">
+                <span *ngIf="titleVar.errors?.required">
+                    Please enter a movie title.
+                </span>
+                <span *ngIf="titleVar.errors?.minlength">
+                    The movie title must be at least 3 characters.
+                </span>
             </span>
-            <span *ngIf="titleVar.errors?.minlength">
-                The movie title must be at least 3 characters.
-            </span>
-        </span>
-
         </p>
 
         <p>
-        <label>Director:</label>
-        <input  id="inputMovieDirector"
-                type="text"
-                placeholder="Director (required)"
-                required
-                minlength="5"
-                maxlength="50"
-                [(ngModel)]="movie.director"
-                name="director"
-                #directorVar="ngModel"
-                [ngClass]="{'is-invalid': (directorVar.touched || directorVar.dirty) && !directorVar.valid }" />
-                <span class="invalid-feedback">
-                    <span *ngIf="directorVar.errors?.required">
-                            Please enter the director's name.
-                    </span>
-                    <span *ngIf="directorVar.errors?.minlength">
-                            The name must be at least 5 characters.
-                    </span>
+            <label>Director:</label>
+            <input  id="inputMovieDirector"
+                    type="text"
+                    placeholder="Director (required)"
+                    required
+                    minlength="5"
+                    maxlength="50"
+                    [(ngModel)]="movie.director"
+                    name="director"
+                    #directorVar="ngModel"
+                    [ngClass]="{'is-invalid': (directorVar.touched || directorVar.dirty) && !directorVar.valid }" />
+            <span class="invalid-feedback">
+                <span *ngIf="directorVar.errors?.required">
+                        Please enter the director's name.
                 </span>
-    
+                <span *ngIf="directorVar.errors?.minlength">
+                        The name must be at least 5 characters.
+                </span>
+            </span>  
         </p>
 
         <p>
             <label>Star Rating (1-5):</label>
             <input id="inputStarRating"
-                type="string"
-                placeholder="Rating"
-                mhRange="1, 5"
-                [(ngModel)]="movie.starRating"
-                name="starRating"
-                #starRatingVar="ngModel"
-                [ngClass]="{'is-invalid': (starRatingVar.touched || starRatingVar.dirty) && !starRatingVar.valid}" />
-                <span class="invalid-feedback">
-                    <span *ngIf="starRatingVar.errors?.range">
-                    Rate the movie between 1 (lowest) and 5 (highest).
-                    </span>
+                   type="string"
+                   placeholder="Rating"
+                   mhRange="1, 5"
+                   [(ngModel)]="movie.starRating"
+                   name="starRating"
+                   #starRatingVar="ngModel"
+                   [ngClass]="{'is-invalid': (starRatingVar.touched || starRatingVar.dirty) && !starRatingVar.valid}" />
+            <span class="invalid-feedback">
+                <span *ngIf="starRatingVar.errors?.range">
+                Rate the movie between 1 (lowest) and 5 (highest).
                 </span>
+            </span>
 
         </p>
 
         <p>
             <label>Description:</label>
             <textarea id="inputMovieDescription"
-                    placeholder="Description"
-                    rows=3
-                    [(ngModel)]="movie.description"
-                    name="description">
-            </textarea>
+                      placeholder="Description"
+                      rows=3
+                      [(ngModel)]="movie.description"
+                      name="description"></textarea>
 
         </p>
 
