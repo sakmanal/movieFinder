@@ -28,12 +28,12 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     UserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(MovieData, { delay: 1000, dataEncapsulation: false })
+    HttpClientInMemoryWebApiModule.forRoot(MovieData, { delay: 1000, dataEncapsulation: false }),
+    AppRoutingModule // should be imported last
   ],
   providers: [],
   bootstrap: [AppComponent]
