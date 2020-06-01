@@ -14,7 +14,7 @@ export class MovieResolver implements Resolve<Movie> {
   constructor(private movieService: MovieService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Movie> {
-    const id = route.paramMap.get('id');
+    const id = route.paramMap.get('id');    //we get the param 'id' as a string
     return this.movieService.getMovie(+id); //with '+' we convert string to number 
   }
 }

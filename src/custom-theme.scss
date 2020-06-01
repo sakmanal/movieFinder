@@ -10,13 +10,13 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 @include angular-material-theme($my-app-theme);
 
 
-$toolbar-primary: mat-palette($mat-grey, 900);
+/* $toolbar-primary: mat-palette($mat-grey, 900);
 $toolbar-accent:  mat-palette($mat-pink);
-$toolbar-theme: mat-light-theme($my-app-primary, $my-app-accent);
+$toolbar-theme: mat-light-theme($my-app-primary, $my-app-accent); */
 
-.toolbar-theme {
+/* .toolbar-theme {
   @include mat-toolbar-theme($toolbar-theme);
-}
+} */
 
 .alternate-theme {
   $alternate-primary: mat-palette($mat-grey, 900);
