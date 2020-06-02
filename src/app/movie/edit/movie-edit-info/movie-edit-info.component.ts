@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { Movie } from '../../movie';
-import { log } from 'util';
 
 @Component({
   selector: 'app-movie-edit-info',
