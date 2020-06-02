@@ -41,7 +41,8 @@ const movieRoutes: Routes = [
   },
   {
     path: ':id/editReactive',
-    resolve: { movie: MovieResolver },
+    //no need for resolver here, we use similar code as the resolver, inside editReactive component
+    //resolve: { movie: MovieResolver },
     component: MovieEditReactiveComponent
   },
 ]

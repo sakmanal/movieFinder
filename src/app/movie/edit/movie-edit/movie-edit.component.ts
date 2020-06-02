@@ -35,9 +35,10 @@ export class MovieEditComponent implements OnInit {
     this.currentMovie = movie;
      
     //above behavior can be logged here
-    //setInterval( () => {console.log(this.currentMovie.director)}, 5000 );
+    //setInterval( () => {console.log(this.currentMovie.director, this.originalMovie.director)}, 5000 );
     
     // Clone the object to retain a copy
+    // this.originalMovie = movie --- we pass it with reference, we don't want this
     this.originalMovie = Object.assign({}, movie);
   }
 
