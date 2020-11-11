@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { AuthService } from '../../user/auth.service';
+import { AuthService } from '@auth/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,45 +8,32 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent {
-  
+export class MenuComponent implements OnDestroy {
+
   pageTitle = 'MovieFinder';
   mobileQuery: MediaQueryList;
-  private _mobileQueryListener: () => void;
-  
-  get isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
-  }
+  private mobileQueryListener: () => void;
 
-  get userName(): string | null {
-    if (this.authService.currentUser) {
-      return this.authService.currentUser.userName;
-    } else {
-      return null;
-    }
-  }
+  user$ = this.authService.getCurrentUser();
 
-  constructor(changeDetectorRef: ChangeDetectorRef, 
-              media: MediaMatcher, 
-              private authService: AuthService,
-              private router: Router) {
+  constructor(
+      private changeDetectionRef: ChangeDetectorRef,
+      media: MediaMatcher,
+      private authService: AuthService,
+      private router: Router
+    ) {
     this.mobileQuery = media.matchMedia('(max-width: 750px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-    
+    this.mobileQueryListener = () => { changeDetectionRef.detectChanges(); };
+    this.mobileQuery.addEventListener('change', this.mobileQueryListener);
   }
-  
+
   logOut(): void {
     this.authService.logout();
     this.router.navigate(['/welcome']);
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
   }
-  
-  
-
-  
 
 }

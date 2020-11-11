@@ -7,7 +7,7 @@ import { Router, Event, NavigationStart, NavigationEnd, NavigationError, Navigat
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  loading:boolean = true;
+  loading = true;
 
   constructor(private router: Router) {
     router.events.subscribe((routerEvent: Event) => {
@@ -17,14 +17,12 @@ export class AppComponent {
 
   checkRouterEvent(routerEvent: Event): void {
     if (routerEvent instanceof NavigationStart) {
-      //console.log('nav start');
       this.loading = true;
     }
 
     if (routerEvent instanceof NavigationEnd ||
       routerEvent instanceof NavigationCancel ||
       routerEvent instanceof NavigationError) {
-        //console.log('nav end');
         this.loading = false;
     }
   }

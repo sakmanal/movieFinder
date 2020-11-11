@@ -1,7 +1,7 @@
 toolbar{
-  position: relative;  
+  position: relative;
   height: 40px;
-  min-height: 40px; 
+  min-height: 40px;
   z-index: 10;
 }
 
@@ -30,4 +30,8 @@ toolbar{
 
 .git-btn{
   text-decoration: none;
+}
+
+.welcome{
+  font-size: 15px;
 }

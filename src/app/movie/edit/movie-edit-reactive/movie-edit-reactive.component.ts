@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Movie } from '../../movie';
 import { MovieService } from '../../movie.service';
 
-import { NumberValidators } from '@app/shared/number.validator';
+import { NumberValidators } from '@app/shared/validators/number.validator';
 
 @Component({
   selector: 'app-movie-edit-reactive',
@@ -80,7 +80,7 @@ export class MovieEditReactiveComponent implements OnInit {
       starRating: {
         range: 'Rate the movie between 1 (lowest) and 5 (highest).'
       }
-    };            
+    };
 
   }
 

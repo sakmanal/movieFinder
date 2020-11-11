@@ -1,13 +1,13 @@
 <div class="alternate-theme">
   <mat-toolbar color="primary" class="mat-elevation-z4">
-   
+
     <button mat-button class="title" routerLink='/welcome'>{{pageTitle}}</button>
     <span *ngIf="mobileQuery.matches ? false : true">
          <button mat-button
             routerLinkActive='active'
             [routerLinkActiveOptions]="{ exact: true }"
             routerLink='/movies'>
-            <i class="fas fa-list-ul"></i>
+            <i class="fas fa-film"></i>
             Movie List
         </button>
         <button mat-button
@@ -25,27 +25,29 @@
             Add Movie
         </button>
     </span>
-    
+
 
     <span class="spacer"></span>
-    <button *ngIf="isLoggedIn" mat-button routerLink="/login">
-         <span>Welcome <i class="username">{{ userName }}</i></span>
-    </button>
-    <button mat-raised-button color="warn" *ngIf="!isLoggedIn" routerLink="/login">
+    <ng-container *ngIf="user$ | async as user; else login">
+        <span class="welcome">Welcome <i class="username">{{ user.userName }}</i></span>
+    </ng-container>
+    <ng-template #login>
+      <button mat-raised-button color="warn" routerLink="/auth">
         <i class="fas fa-sign-in-alt"></i>
         <span class="menu-item">Log In</span>
-    </button>
+      </button>
+    </ng-template>
 
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <i class="fas fa-chevron-circle-down fa-2x"></i>
-    </button> 
+    </button>
     <mat-menu #menu="matMenu">
         <span *ngIf="mobileQuery.matches ? true : false">
                 <button mat-menu-item
                         routerLinkActive='active'
                         [routerLinkActiveOptions]="{ exact: true }"
                         routerLink='/movies'>
-                        <i class="fas fa-list-ul"></i>
+                        <i class="fas fa-film"></i>
                         <span class="menu-item">Movie List</span>
                 </button>
                 <button mat-menu-item
@@ -69,12 +71,12 @@
                 <span class="menu-item">GitHub</span>
             </button>
         </a>
-       
-        <button mat-menu-item *ngIf="isLoggedIn" (click)="logOut()">
+
+        <button mat-menu-item *ngIf="user$ | async" (click)="logOut()">
                 <i class="fas fa-sign-out-alt"></i>
                 <span class="menu-item">Log Out</span>
         </button>
-    </mat-menu> 
+    </mat-menu>
   </mat-toolbar>
 </div>
 

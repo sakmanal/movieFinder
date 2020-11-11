@@ -1,0 +1,87 @@
+<div class="lock-icon"><i class="fas fa-user-lock fa-3x"></i></div>
+<mat-card-title>
+  LOGIN to <span class="title">MovieFinder</span>
+</mat-card-title>
+<mat-divider></mat-divider>
+<mat-card-content>
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <p>
+      <mat-form-field appearance="outline" color="warn">
+        <mat-label class="label">Username</mat-label>
+        <input type="string"
+               matInput
+               placeholder="type your username"
+               formControlName="username" />
+               <mat-icon matSuffix>person</mat-icon>
+               <mat-error class="error" *ngIf="form.username.invalid">
+                   UserName is <strong>required.</strong>
+               </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" color="warn">
+        <mat-label class="label">Password</mat-label>
+        <input type="password"
+               matInput
+               placeholder="type your password"
+               formControlName="password"
+               [type]="hidePassword ? 'text' : 'password'" />
+               <button mat-icon-button matSuffix
+                           type="button"
+                           (click)="hidePassword = !hidePassword"
+                           [attr.aria-label]="'Hide password'"
+                           [attr.aria-pressed]="hidePassword">
+                           <i [ngClass]="(hidePassword)?'fas fa-eye':'fas fa-eye-slash'"></i>
+               </button>
+               <mat-error class="error" *ngIf="form.password.invalid">
+                 Password is <strong>required.</strong>
+               </mat-error>
+      </mat-form-field>
+    </p>
+
+    <div class="btn">
+      <button [disabled]="loading || !loginForm.valid"
+              mat-raised-button
+              class="action-btn"
+              type="submit"
+              color="warn">
+              <i *ngIf="loading" class="fas fa-spinner fa-spin fa-lg fa-fw"></i>
+              Log In
+      </button>
+      <button color="primary"
+              type="button"
+              class="action-btn"
+              mat-raised-button
+              [routerLink]="['/welcome']"
+              style="margin-left: 10px">
+              Cancel
+      </button>
+    </div>
+  </form >
+</mat-card-content>
+<div class="bottom-btns">
+  <p class="forgot">
+    <a [routerLink]="['/auth/forgotPass']">
+      Forgot Password?
+    </a>
+  </p>
+  <p class="signup">
+    <a [routerLink]="['/auth/register']">
+      Not a member? Sign up now!
+    </a>
+  </p>
+</div>
+
+<mat-divider></mat-divider>
+
+<fieldset>
+  <legend>Test Users:</legend>
+    <button mat-flat-button color="accent" class="test-btn" (click)="loginAsAdmin()">
+      <i class="fas fa-user-shield"></i> Log in as Admin
+    </button>
+    <button mat-flat-button color="warn" class="test-btn" (click)="loginAsJohn()">
+      <i class="fas fa-user-shield"></i> Log in as Jojn
+    </button>
+</fieldset>
+
+

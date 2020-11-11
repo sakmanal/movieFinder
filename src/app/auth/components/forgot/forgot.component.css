@@ -1,0 +1,35 @@
+.warn-icon {
+  margin-bottom: 15px;
+  color: #9b5f15;
+}
+
+mat-card-content {
+  padding-top: 10px;
+}
+
+.message {
+  font-weight: bold;
+}
+
+.info {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+.action-btn{
+  width: 100%;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: #343A40;
+}

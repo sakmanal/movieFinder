@@ -1,7 +1,7 @@
 import { Attribute, Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, Validator, AbstractControl, ValidatorFn } from '@angular/forms';
 
-import { NumberValidators } from './number.validator';
+import { NumberValidators } from '../validators/number.validator';
 
 @Directive({
   selector: '[mhRange][ngModel]',

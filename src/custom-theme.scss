@@ -9,15 +9,6 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 @include angular-material-theme($my-app-theme);
 
-
-/* $toolbar-primary: mat-palette($mat-grey, 900);
-$toolbar-accent:  mat-palette($mat-pink);
-$toolbar-theme: mat-light-theme($my-app-primary, $my-app-accent); */
-
-/* .toolbar-theme {
-  @include mat-toolbar-theme($toolbar-theme);
-} */
-
 .alternate-theme {
   $alternate-primary: mat-palette($mat-grey, 900);
   $alternate-accent:  mat-palette($mat-yellow, 400);
@@ -25,4 +16,5 @@ $toolbar-theme: mat-light-theme($my-app-primary, $my-app-accent); */
 
   @include mat-toolbar-theme($alternate-theme);
 }
+
 

@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { SpinnerComponent } from './spinner/spinner.component';
-import { StarComponent } from './star/star.component';
-
-import { RangeValidatorDirective } from './range.directive';
-
-
+import { StarComponent } from './components/star/star.component';
+import { RangeValidatorDirective } from './directives/range.directive';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
-    SpinnerComponent,
     StarComponent,
-    RangeValidatorDirective
+    RangeValidatorDirective,
+    SpinnerComponent
   ],
   imports: [
     CommonModule

@@ -1,0 +1,41 @@
+<div class="warn-icon"><i class="fas fa-exclamation-triangle fa-3x"></i></div>
+<mat-card-title>
+  Recover Password
+</mat-card-title>
+<mat-divider></mat-divider>
+<mat-card-content>
+  <p class="message">Don't worry, happens to the best of us.</p>
+  <form novalidate [formGroup]="resetForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <p>
+      <span class="info">Enter the email address associated with your account and we'll send instructions on how to reset your password.</span>
+      <mat-form-field appearance="outline" color="warn">
+        <mat-label class="label">Recovery Email </mat-label>
+        <input type="string"
+               matInput
+               placeholder="type your email"
+               formControlName="email" />
+               <mat-icon matSuffix><i class="fas fa-envelope"></i></mat-icon>
+               <mat-error class="error" *ngIf="resetForm.controls.email.hasError('required')">
+                Please provide a <strong>recovery email.</strong>
+               </mat-error>
+               <mat-error class="error" *ngIf="resetForm.controls.email.hasError('email')">
+                Please provide a <strong>valid email address.</strong>
+               </mat-error>
+      </mat-form-field>
+    </p>
+
+    <button [disabled]="!resetForm.valid"
+      mat-raised-button
+      class="action-btn"
+      type="submit"
+      color="warn">
+      email me a recovery link
+    </button>
+    <p>
+      <a [routerLink]="['/auth']">
+        <i class="fas fa-chevron-left icon"></i>Back to Login
+      </a>
+    </p>
+  </form>
+
+</mat-card-content>

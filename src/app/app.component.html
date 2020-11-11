@@ -1,12 +1,2 @@
-<div *ngIf="loading" class="atom-spinner">
-  <div class="spinner-inner">
-    <div class="spinner-line"></div>
-    <div class="spinner-line"></div>
-    <div class="spinner-line"></div>
-    <!--Chrome renders little circles malformed :(-->
-    <div class="spinner-circle">
-      &#9679;
-    </div>
-  </div>
-</div>
+<app-spinner *ngIf="loading" color="#ff1a1a" class="spinner"></app-spinner>
 <router-outlet></router-outlet>
