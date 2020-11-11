@@ -8,15 +8,25 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgotComponent } from './components/forgot/forgot.component';
+import { TermsDialogComponent } from './components/terms-dialog/terms-dialog.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, AuthPageComponent, ForgotComponent],
+  declarations: [
+    LoginComponent,
+    SignupComponent,
+    AuthPageComponent,
+    ForgotComponent,
+    TermsDialogComponent
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule
+  ],
+  entryComponents: [
+    TermsDialogComponent
   ]
 })
 export class AuthModule { }

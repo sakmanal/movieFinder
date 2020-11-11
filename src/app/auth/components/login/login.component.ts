@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public get form() {
+  get form() {
     return this.loginForm.controls;
   }
 
-  public onSubmit() {
+  onSubmit() {
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -51,18 +51,19 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
            () => {
-                if (this.authService.redirectUrl) {
-                  this.toastr.success('Logged in successfully!');
-                  this.router.navigateByUrl(this.authService.redirectUrl);
-                } else {
-                  this.toastr.success('Logged in successfully!');
-                  this.router.navigate(['/']);
-                }
+              this.loading = false;
+              this.toastr.clear();
+              this.toastr.success('Logged in successfully!');
+              if (this.authService.redirectUrl) {
+                this.router.navigateByUrl(this.authService.redirectUrl);
+              } else {
+                this.router.navigate(['/']);
+              }
             },
             error => {
-                this.errorMessage = error;
-                this.toastr.error(error);
-                this.loading = false;
+              this.errorMessage = error;
+              this.toastr.error(error);
+              this.loading = false;
             }
         );
   }

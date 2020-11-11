@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { LoginResponse } from '../models/loginResponce';
+import { LoginResponse, RegisterResponse } from '../models/authResponces';
 import { Token } from '../models/token';
-import { LoginData } from '../models/logindata';
+import { LoginFormData, RegisterFormData } from '../models/authData';
 import { User } from '../models/user';
 
 @Injectable({
@@ -17,11 +17,13 @@ export class MockHttpService {
   post(url: string, data: any, headers?: any): Observable<any> {
     switch (url) {
       case `${environment.apiUrl}/login`:
-        return this.fakeLogin(data as LoginData);
+        return this.fakeLogin(data as LoginFormData);
       case `${environment.apiUrl}/refresh-token`:
         return this.fakeRefreshToken();
-        case `${environment.apiUrl}/recoverymail`:
-          return this.fakeMailRecovery(data.email as string);
+      case `${environment.apiUrl}/recoverymail`:
+        return this.fakeMailRecovery(data.email as string);
+      case `${environment.apiUrl}/register`:
+        return this.fakeRegister(data as RegisterFormData);
       default:
         return of(null);
     }
@@ -36,7 +38,7 @@ export class MockHttpService {
      }
   }
 
-  private fakeLogin(data: LoginData): Observable<LoginResponse> {
+  private fakeLogin(data: LoginFormData): Observable<LoginResponse> {
     if (this.checkCredentials(data.username, data.password)) {
       localStorage.setItem('username', JSON.stringify(data.username));
       return of({
@@ -54,6 +56,19 @@ export class MockHttpService {
         status: 401
       });
     }
+  }
+
+  private fakeRegister(data: RegisterFormData): Observable<RegisterResponse> {
+    return of({
+      success: true,
+      message: 'Please check your email for login details.',
+      user: {
+        id: 10067,
+        userName: data.username,
+        isAdmin: false,
+        email: data.email
+      }
+    }).pipe(delay(1500));
   }
 
   private checkCredentials(username: string, password: string): boolean {

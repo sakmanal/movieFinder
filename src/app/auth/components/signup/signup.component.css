@@ -1,0 +1,52 @@
+.title {
+  font-family: 'Poller One', cursive;
+  color: #6C63FF;
+  font-size: 23px;
+  padding-left: 5px;
+}
+
+.camera-icon{
+  margin-bottom: 15px;
+}
+
+mat-card-title {
+  font-size: 18px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+.action-btn {
+  width: 100%;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: #343A40;
+}
+
+mat-checkbox {
+  margin-right: 5px;
+}
+
+.terms {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.policy {
+  color: #3F51B5;
+  font-weight: bold;
+}
+
+.policy:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+

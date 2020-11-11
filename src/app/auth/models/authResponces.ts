@@ -6,4 +6,8 @@ export interface LoginResponse {
   user: User;
 }
 
-
+export interface RegisterResponse {
+  success: boolean;
+  message: string;
+  user: User;
+}

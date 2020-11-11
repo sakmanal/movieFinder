@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { environment } from '@env/environment';
 import { User } from '../models/user';
-import { LoginResponse } from '../models/loginResponce';
+import { LoginResponse, RegisterResponse } from '../models/authResponces';
 import { LocalStorageService } from './local-storage.service';
 import { Token } from '../models/token';
-import { LoginData } from '../models/logindata';
+import { LoginFormData, RegisterFormData } from '../models/authData';
 import { MockHttpService } from '../fake-server/mock-http.service';
 
 
@@ -22,7 +22,7 @@ export class AuthService {
               private http: MockHttpService, // fake http client
               private localStorageService: LocalStorageService) { }
 
-  login(form: LoginData): Observable<LoginResponse> {
+  login(form: LoginFormData): Observable<LoginResponse> {
     return this.http.post/* <LoginResponse> */(`${environment.apiUrl}/login`, form, this.headers)
       .pipe(
         tap((response: LoginResponse) => {
@@ -38,6 +38,16 @@ export class AuthService {
     this.localStorageService.removeItem('token');
     this.localStorageService.removeItem('refreshToken');
     this.user$.next(null);
+  }
+
+  register(form: RegisterFormData): Observable<{message: string, username: string}> {
+      return this.http.post/* <RegisterResponse> */(`${environment.apiUrl}/register`, form, this.headers)
+        .pipe(
+          map( (response: RegisterResponse) => {
+            return { message: response.message, username: response.user.userName };
+          }),
+          catchError(this.handleError)
+        );
   }
 
   getCurrentUser(): Observable<User> {
@@ -98,18 +108,18 @@ export class AuthService {
     this.redirectUrlink = url;
   }
 
-    private handleError(err: HttpErrorResponse) {
-      let errorMessage: string;
-      if (err.error instanceof ErrorEvent) {
-        // A client-side or network error occurred. Handle it accordingly.
-        errorMessage = `An error occurred: ${err.error.message}`;
-      } else {
-        // The backend returned an unsuccessful response code.
-        // The response body may contain clues as to what went wrong,
-        errorMessage = `Backend returned code ${err.status}: ${err.message}`;
-      }
-      console.error(err);
-      return throwError(errorMessage);
+  private handleError(err: HttpErrorResponse) {
+    let errorMessage: string;
+    if (err.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      errorMessage = `An error occurred: ${err.error.message}`;
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      errorMessage = `Backend returned code ${err.status}: ${err.message}`;
+    }
+    console.error(err);
+    return throwError(errorMessage);
   }
 
 }

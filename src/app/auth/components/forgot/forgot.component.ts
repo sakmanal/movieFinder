@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ForgotpassService } from '../../services/forgotpass.service';
@@ -15,7 +14,6 @@ export class ForgotComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
     private toastr: ToastrService,
     private forgotpassService: ForgotpassService
   ) {
@@ -31,7 +29,7 @@ export class ForgotComponent implements OnInit {
     });
   }
 
-  public onSubmit() {
+  onSubmit() {
     // stop here if form is invalid
     if (this.resetForm.invalid) {
       return;
