@@ -45,14 +45,13 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
         return;
     }
-
+    this.toastr.clear();
     this.loading = true;
     this.authService.login(this.loginForm.value)
         .pipe(first())
         .subscribe(
            () => {
               this.loading = false;
-              this.toastr.clear();
               this.toastr.success('Logged in successfully!');
               if (this.authService.redirectUrl) {
                 this.router.navigateByUrl(this.authService.redirectUrl);

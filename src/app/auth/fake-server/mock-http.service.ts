@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { LoginResponse, RegisterResponse } from '../models/authResponces';
+import { LoginResponse, RegisterResponse, AvailableUserResponse } from '../models/authResponces';
 import { Token } from '../models/token';
 import { LoginFormData, RegisterFormData } from '../models/authData';
 import { User } from '../models/user';
@@ -20,10 +20,12 @@ export class MockHttpService {
         return this.fakeLogin(data as LoginFormData);
       case `${environment.apiUrl}/refresh-token`:
         return this.fakeRefreshToken();
-      case `${environment.apiUrl}/recoverymail`:
+      case `${environment.apiUrl}/user/recoverymail`:
         return this.fakeMailRecovery(data.email as string);
       case `${environment.apiUrl}/register`:
         return this.fakeRegister(data as RegisterFormData);
+      case `${environment.apiUrl}/user/isUsernameAvailable`:
+        return this.fakeCheckAvailableUserName(data.name as string);
       default:
         return of(null);
     }
@@ -88,7 +90,7 @@ export class MockHttpService {
       return of({
         id: 10034,
         userName,
-        isAdmin: true
+        isAdmin: false
       });
     } catch (e) {
       return of(null);
@@ -107,5 +109,14 @@ export class MockHttpService {
     } else {
       return throwError('Invalid email address');
     }
+  }
+
+  private fakeCheckAvailableUserName(name: string): Observable<AvailableUserResponse> {
+    const usernames = ['admin', 'john', 'alex', 'peter'];
+    const isAvailable = !usernames.includes(name.toLowerCase());
+    return of({
+      isAvailable,
+      username: name
+    }).pipe(delay(2000));
   }
 }

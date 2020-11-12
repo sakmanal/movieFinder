@@ -16,6 +16,6 @@ export class ForgotpassService {
 
   recoveryMail(email: string): Observable<{message: string}> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(`${environment.apiUrl}/recoverymail`, { email }, { headers });
+    return this.http.post(`${environment.apiUrl}/user/recoverymail`, { email }, { headers });
   }
 }

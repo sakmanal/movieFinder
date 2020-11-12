@@ -11,3 +11,8 @@ export interface RegisterResponse {
   message: string;
   user: User;
 }
+
+export interface AvailableUserResponse {
+  isAvailable: boolean;
+  username: string;
+}

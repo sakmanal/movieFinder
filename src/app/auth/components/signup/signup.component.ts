@@ -7,6 +7,7 @@ import { mustMatch } from '@shared/validators/must-match.validator';
 import { MatDialog } from '@angular/material/dialog';
 import { TermsDialogComponent } from '../terms-dialog/terms-dialog.component';
 import { AuthService } from '../../services/auth.service';
+import { UsernameValidator } from '@shared/validators/username.validator';
 
 @Component({
   selector: 'app-signup',
@@ -24,9 +25,15 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private dialog: MatDialog,
-    private authService: AuthService
+    private authService: AuthService,
+    private usernameValidator: UsernameValidator
   ) {
     this.createForm();
+    // this.registerForm.statusChanges.subscribe( status => console.log(status) );
+    // this.registerForm.markAllAsTouched()
+    this.form.username.statusChanges
+      .pipe(first())
+      .subscribe( () => { this.form.username.markAsTouched(); });
   }
 
   ngOnInit() {
@@ -34,7 +41,7 @@ export class SignupComponent implements OnInit {
 
   private createForm() {
     this.registerForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      username: ['', Validators.required, this.usernameValidator.availableUsername()],
       email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
@@ -75,7 +82,5 @@ export class SignupComponent implements OnInit {
   openTermsDialog() {
     this.dialog.open(TermsDialogComponent);
   }
-
-
 
 }

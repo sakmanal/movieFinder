@@ -22,7 +22,7 @@ mat-card {
   width: 300px;
   height: fit-content;
   text-align: center;
-  background-color: rgba(255, 255, 240, 0.712);
+  background-color: rgba(255, 255, 240, 0.836);
 }
 
 @media only screen and (max-height: 600px) {

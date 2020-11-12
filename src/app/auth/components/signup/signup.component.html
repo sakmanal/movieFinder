@@ -13,11 +13,22 @@
                placeholder="choose a username"
                formControlName="username" />
                <mat-icon matSuffix><i class="fas fa-user"></i></mat-icon>
-               <mat-error class="error" *ngIf="form.username.invalid">
+               <mat-error class="error" *ngIf="form.username.hasError('required')">
                 Please provide an <strong>username.</strong>
                </mat-error>
+               <mat-error class="error" *ngIf="form.username.hasError('userNameExists')">
+                <i class="fas fa-exclamation-circle"></i> This Username is taken. Try another.
+               </mat-error>
       </mat-form-field>
+      <mat-error class="pending" *ngIf="form.username.pending">
+        Pending...<i class="fas fa-spinner fa-spin"></i>
+      </mat-error>
+      <mat-error class="valid" *ngIf="form.username.valid">
+        <i class="fas fa-check-circle"></i> Valid Username.
+      </mat-error>
+      <mat-hint>NOTE: <strong>Admin, John, Alex, Peter</strong> are already taken. Try them to check Async Validator.</mat-hint>
     </p>
+    <hr>
     <p>
       <mat-form-field appearance="outline" color="warn">
         <mat-label class="label">Email Address</mat-label>
@@ -33,20 +44,23 @@
                 Please provide a <strong>valid email address.</strong>
                </mat-error>
       </mat-form-field>
+      <mat-hint>NOTE: <strong>admin@mail.com, john@mail.com</strong> are already taken. Try them to check Async Validator.</mat-hint>
     </p>
+    <hr>
     <p>
       <mat-form-field appearance="outline" color="warn">
         <mat-label class="label">Password</mat-label>
         <input type="password"
                matInput
-               placeholder="type your password"
+               #input
+               placeholder="type your password (min 8 characters)"
                formControlName="password"/>
                <mat-icon matSuffix><i class="fas fa-key"></i></mat-icon>
                <mat-error class="error" *ngIf="form.password.hasError('required')">
                  Password is <strong>required.</strong>
                </mat-error>
                <mat-error class="error" *ngIf="form.password.hasError('minlength')">
-                Password must be at least <strong>8 characters.</strong>
+                Password must be at least <strong>8 characters. ({{input.value?.length || 0}}/8)</strong>
                </mat-error>
       </mat-form-field>
     </p>
@@ -55,7 +69,7 @@
         <mat-label class="label">Repeat Password</mat-label>
         <input type="password"
                matInput
-               placeholder="type your password"
+               placeholder="repeat your password"
                formControlName="confirmPassword"/>
                <mat-icon matSuffix><i class="fas fa-key"></i></mat-icon>
                <mat-error class="error" *ngIf="form.confirmPassword.invalid">

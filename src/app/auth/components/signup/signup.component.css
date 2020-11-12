@@ -50,3 +50,17 @@ mat-checkbox {
   text-decoration: underline;
 }
 
+.pending {
+  color: #3F51B5;
+  position: absolute;
+  margin-top: -15px;
+}
+
+.valid {
+  color: #096b05;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: -15px;
+  font-size: 12px;
+}
+

@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { environment } from '@env/environment';
 import { User } from '../models/user';
-import { LoginResponse, RegisterResponse } from '../models/authResponces';
+import { LoginResponse, RegisterResponse, AvailableUserResponse } from '../models/authResponces';
 import { LocalStorageService } from './local-storage.service';
 import { Token } from '../models/token';
 import { LoginFormData, RegisterFormData } from '../models/authData';
@@ -87,6 +87,13 @@ export class AuthService {
             this.setToken('token', response.accessToken);
             this.setToken('refreshToken', response.refreshToken);
           })
+      );
+  }
+
+  checkAvailableUserName(name: string): Observable<boolean> {
+    return this.http.post(`${environment.apiUrl}/user/isUsernameAvailable`, { name }, this.headers)
+      .pipe(
+        map((response: AvailableUserResponse) => response.isAvailable)
       );
   }
 
