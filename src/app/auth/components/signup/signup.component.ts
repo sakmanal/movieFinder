@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TermsDialogComponent } from '../terms-dialog/terms-dialog.component';
 import { AuthService } from '../../services/auth.service';
 import { UsernameValidator } from '@shared/validators/username.validator';
+import { EmailValidator } from '@shared/validators/email.validator';
 
 @Component({
   selector: 'app-signup',
@@ -26,14 +27,17 @@ export class SignupComponent implements OnInit {
     private toastr: ToastrService,
     private dialog: MatDialog,
     private authService: AuthService,
-    private usernameValidator: UsernameValidator
+    private usernameValidator: UsernameValidator,
+    private emailValidator: EmailValidator
   ) {
     this.createForm();
-    // this.registerForm.statusChanges.subscribe( status => console.log(status) );
-    // this.registerForm.markAllAsTouched()
+
     this.form.username.statusChanges
       .pipe(first())
       .subscribe( () => { this.form.username.markAsTouched(); });
+    this.form.email.statusChanges
+      .pipe(first())
+      .subscribe( () => { this.form.email.markAsTouched(); });
   }
 
   ngOnInit() {
@@ -42,11 +46,15 @@ export class SignupComponent implements OnInit {
   private createForm() {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required, this.usernameValidator.availableUsername()],
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      email: ['',
+        [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')],
+        this.emailValidator.availableEmail()
+      ],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
       acceptTerms: [false, Validators.requiredTrue]
-    }, {
+    },
+    {
       validator: mustMatch('password', 'confirmPassword')
     });
   }
@@ -68,7 +76,7 @@ export class SignupComponent implements OnInit {
         .subscribe(
            (res) => {
               this.loading = false;
-              this.toastr.success('You account was created successfully!', `Hello ${res.username}`, { disableTimeOut: true });
+              this.toastr.success('Your account was created successfully!', `Hello ${res.username}`, { disableTimeOut: true });
               this.toastr.warning(res.message, '', { disableTimeOut: true });
               this.router.navigate(['/auth/login']);
             },

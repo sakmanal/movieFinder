@@ -43,7 +43,16 @@
                <mat-error class="error" *ngIf="form.email.hasError('pattern')">
                 Please provide a <strong>valid email address.</strong>
                </mat-error>
+               <mat-error class="error" *ngIf="form.email.hasError('emailExists')">
+                <i class="fas fa-exclamation-circle"></i> This email address is taken. Try another.
+               </mat-error>
       </mat-form-field>
+      <mat-error class="pending" *ngIf="form.email.pending">
+        Pending...<i class="fas fa-spinner fa-spin"></i>
+      </mat-error>
+      <mat-error class="valid" *ngIf="form.email.valid">
+        <i class="fas fa-check-circle"></i> Valid email.
+      </mat-error>
       <mat-hint>NOTE: <strong>admin@mail.com, john@mail.com</strong> are already taken. Try them to check Async Validator.</mat-hint>
     </p>
     <hr>

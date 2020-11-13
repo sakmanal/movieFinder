@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { LoginResponse, RegisterResponse, AvailableUserResponse } from '../models/authResponces';
+import { LoginResponse, RegisterResponse, AvailableUserResponse, AvailableEmailResponse } from '../models/authResponces';
 import { Token } from '../models/token';
 import { LoginFormData, RegisterFormData } from '../models/authData';
 import { User } from '../models/user';
@@ -26,6 +26,8 @@ export class MockHttpService {
         return this.fakeRegister(data as RegisterFormData);
       case `${environment.apiUrl}/user/isUsernameAvailable`:
         return this.fakeCheckAvailableUserName(data.name as string);
+        case `${environment.apiUrl}/user/isEmailAvailable`:
+          return this.fakeCheckAvailableEmail(data.email as string);
       default:
         return of(null);
     }
@@ -117,6 +119,15 @@ export class MockHttpService {
     return of({
       isAvailable,
       username: name
+    }).pipe(delay(2000));
+  }
+
+  private fakeCheckAvailableEmail(email: string): Observable<AvailableEmailResponse> {
+    const emails = ['admin@mail.com', 'john@mail.com'];
+    const isAvailable = !emails.includes(email.toLowerCase());
+    return of({
+      isAvailable,
+      email
     }).pipe(delay(2000));
   }
 }

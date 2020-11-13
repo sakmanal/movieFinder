@@ -16,3 +16,8 @@ export interface AvailableUserResponse {
   isAvailable: boolean;
   username: string;
 }
+
+export interface AvailableEmailResponse {
+  isAvailable: boolean;
+  email: string;
+}
