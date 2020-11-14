@@ -26,7 +26,7 @@
               <div class="movie_card" id="bright" [attr.data-aos] = " i % 2 == 0 ? 'fade-right' : 'fade-left'">
                 <div class="info_section">
                   <div class="movie_header">
-                    <img class="locandina" src="{{movie.imageurl}}"/>
+                    <img class="locandina" src="{{movie.imageurl}}" loading="lazy"/>
                     <h1 [routerLink]="['/movies', movie.id]" class="title">{{movie.title}}</h1>
                     <h4><span class="date">({{ movie.releaseDate | date}})</span> {{movie.director}}</h4>
                     <span class="minutes">117 min</span>
