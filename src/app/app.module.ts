@@ -36,7 +36,7 @@ const ToastrOptions = {
     MaterialModule,
     HttpClientModule,
     SharedModule,
-    HttpClientInMemoryWebApiModule.forRoot(MovieData, { delay: 2000, dataEncapsulation: false }),
+    HttpClientInMemoryWebApiModule.forRoot(MovieData, { delay: 1000, dataEncapsulation: false }),
     AppRoutingModule // should be imported last
   ],
   providers: [

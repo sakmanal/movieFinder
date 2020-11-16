@@ -6,32 +6,33 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
-import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieSelectComponent } from './display/movie-select.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieEditComponent } from './edit/movie-edit/movie-edit.component';
 import { MovieEditInfoComponent } from './edit/movie-edit-info/movie-edit-info.component';
 import { MovieEditTagsComponent } from './edit/movie-edit-tags/movie-edit-tags.component';
-import { InputSearchComponent } from './input-search/input-search.component';
 import { MovieEditReactiveComponent } from './edit/movie-edit-reactive/movie-edit-reactive.component';
 
 
-import { MovieResolver } from './movie.resolver';
+import { MovieResolver } from './services/movie.resolver';
 import { MovieEditGuard } from './edit/movie-edit.guard';
+import { MovieListComponent } from './display/movie-list/movie-list.component';
+import { MovieGridComponent } from './display/movie-grid/movie-grid.component';
 
 
 const movieRoutes: Routes = [
-  { path: '', component: MovieListComponent },
+  { path: '', component: MovieSelectComponent },
   { path: 'search', component: MovieSearchComponent },
   {
-    path: ':id',                        //resolver is called every time we navigate to this route
-    resolve: { movie: MovieResolver },  //and it returns a value(movie) stored in movie property
+    path: ':id',
+    resolve: { movie: MovieResolver },
     component: MovieDetailComponent
   },
   {
     path: ':id/edit',
     resolve: { movie: MovieResolver },
-    canDeactivate: [MovieEditGuard],   // prevents switching route (navigate to different path from :id/edit)
+    canDeactivate: [MovieEditGuard],
     component: MovieEditComponent,
     children: [
       { path: '', redirectTo: 'info', pathMatch: 'full' },
@@ -41,22 +42,21 @@ const movieRoutes: Routes = [
   },
   {
     path: ':id/editReactive',
-    //no need for resolver here, we use similar code as the resolver, inside editReactive component
-    //resolve: { movie: MovieResolver },
     component: MovieEditReactiveComponent
   },
-]
+];
 
 @NgModule({
   declarations: [
-    MovieListComponent, 
+    MovieSelectComponent,
     MovieSearchComponent,
     MovieDetailComponent,
     MovieEditComponent,
     MovieEditInfoComponent,
     MovieEditTagsComponent,
-    InputSearchComponent,
-    MovieEditReactiveComponent
+    MovieEditReactiveComponent,
+    MovieListComponent,
+    MovieGridComponent
   ],
   imports: [
     CommonModule,

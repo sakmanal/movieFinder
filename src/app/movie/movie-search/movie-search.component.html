@@ -1,93 +1,81 @@
 <div class="card">
-    <div class="card-header">{{ pageTitle }}</div>
+  <div class="card-header">{{ pageTitle }}</div>
 
-      <form novalidate #searchForm="ngForm">
+  <form novalidate #searchForm="ngForm">
+    <div class="row-div">
+      <div class="column right">
+        <label>Movie Title:</label>
+      </div>
 
-        <div class="row-div">
-                <div class="column right">
-                    <label>Movie Title:</label>
-                </div>
-        
-                <div class="column left">
-                 
-                        <input type="text"
-                               id="inputMovieTitle"  
-                               name="title"
-                               ngModel />     
-                  
-                </div>
-        </div>
+      <div class="column left">
+        <input type="text" id="inputMovieTitle" name="title" ngModel />
+      </div>
+    </div>
 
-        <div class="row-div">
-                <div class="column right">
-                    <label>Director:</label>
-                </div>
-        
-                <div class="column left">
-                
-                        <input id="inputMovieDirector"
-                               type="text"
-                               name="director"
-                               ngModel />    
-                 
-                </div>
-        </div>
+    <div class="row-div">
+      <div class="column right">
+        <label>Director:</label>
+      </div>
 
-        <div class="row-div">
-                <div class="column right">
-                    <label>Min Star Rating (1-5):</label>
-                </div>
-        
-                <div class="column left">
-               
-                        <input id="inputStarRating"
-                               type="number"
-                               name="minStarRating"
-                               ngModel />     
-               
-                </div>
-        </div>
+      <div class="column left">
+        <input id="inputMovieDirector" type="text" name="director" ngModel />
+      </div>
+    </div>
 
-        <div class="row-div">
-                <div class="column right">
-                    <label>Max Star Rating (1-5):</label>
-                </div>
-        
-                <div class="column left">
-            
-                        <input id="inputStarRating"
-                               type="number"
-                               name="maxStarRating"
-                               ngModel />     
-               
-                </div>
-        </div>
+    <div class="row-div">
+      <div class="column right">
+        <label>Min Star Rating (1-5):</label>
+      </div>
 
-        <div class="row-div">
-                <div class="column right">
-                    <label>Description:</label>
-                </div>
-        
-                <div class="column left">
-              
-                        <textarea id="inputMovieDescription"
-                                  rows=3
-                                  name="description"
-                                  ngModel></textarea> 
-             
-                </div>
-        </div>
+      <div class="column left">
+        <input
+          id="inputStarRating"
+          type="number"
+          name="minStarRating"
+          ngModel
+        />
+      </div>
+    </div>
 
-        <div class="row">
-            <button mat-raised-button
-                    type="button"
-                    color="primary"
-                    (click)="search(searchForm.value)">
-                Search
-            </button>
-        </div>
+    <div class="row-div">
+      <div class="column right">
+        <label>Max Star Rating (1-5):</label>
+      </div>
 
-      </form>
-       
+      <div class="column left">
+        <input
+          id="inputStarRating"
+          type="number"
+          name="maxStarRating"
+          ngModel
+        />
+      </div>
+    </div>
+
+    <div class="row-div">
+      <div class="column right">
+        <label>Description:</label>
+      </div>
+
+      <div class="column left">
+        <textarea
+          id="inputMovieDescription"
+          rows="3"
+          name="description"
+          ngModel
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <button
+        mat-raised-button
+        type="button"
+        color="primary"
+        (click)="search(searchForm.value)"
+      >
+        Search
+      </button>
+    </div>
+  </form>
 </div>
-

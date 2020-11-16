@@ -1,100 +1,73 @@
-﻿ <div class="row-div">
-        <div class="column right">
-                      <div class="example-2 card">
-                        <div class="wrapper" [ngStyle]="{'background': 'url(' + movie.imageurl + ') center / cover no-repeat'}">
-                          <div class="header">
-                            <div class="date">
-                                    {{ movie.releaseDate | date}}
-                            </div>
-                            <ul class="menu-content">
-                                <li>
-                                    <i class="fas fa-cart-plus" style="color:yellowgreen"></i>
-                                    <span>{{ movie.price | currency:'USD':'symbol' }}</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-heart" style="color: red"></i>
-                                    <span>{{ movie.approvalRating | percent:'1.0-0' }}</span>
-                                </li>
-                            </ul>
-                          </div>
-                          <div class="data">
-                            <div class="content">
-                              <span class="author">{{movie.director}}</span>
-                              <h1 class="title"><a >{{movie.title}}</a></h1>
-                              <p class="text">{{ movie.description }}</p>
-                
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-        </div>
-
-        <div class="column left">
-            <div class="card-container" *ngIf="movie">
-                <h3> 
-                  <p>
-                    {{movie.title}}      
-                  </p>
-                </h3>
-                 <hr>
-                 <p>
-                   <span class="param">Description:</span> 
-                   {{ movie.description }} 
-                  </p>
-                 <p>
-                    <span class="param">Director:</span> 
-                      {{ movie.director }}
-                  </p>
-                 <p>
-                    <span class="param">Release Date:</span> 
-                      {{ movie.releaseDate | date}}
-                  </p>
-                 <p>
-                    <span class="param">MPAA Film Rating:</span>
-                      {{ movie.mpaa | uppercase}}
-                  </p>
-                 <p>
-                    <span class="param">Category:</span> 
-                      {{ movie.category }}
-                  </p>
-                 <p>
-                   <span class="param">Tags:</span> 
-                   {{movie.tags}}
-                 </p>
-                 <p>
-                    <span class="param">
-                         Star Rating:     
-                        <app-star style="display: inline-block;" 
-                            [rating]="movie.starRating">
-                        </app-star>
-                    </span> 
-                  </p>
-                 <p>
-                    <span class="param">Audience Approval:</span> 
-                      {{ movie.approvalRating | percent:'1.0-0' }}
-                  </p>
-                 <p>
-                    <span class="param">Average DVD Price:</span> 
-                      {{ movie.price | currency:'USD':'symbol' }}
-                 </p>
-                 <button mat-raised-button color="primary" 
-                 style="margin-right: 5px;"
-                 (click)="onBack()">
-                 <i class="fa fa-chevron-left"></i>
-                    Back
-               </button>
-               <button mat-raised-button 
-                       color="warn"
-                       [routerLink]="['/movies', movie.id, 'edit']">
-                   Edit
-                </button>
-               <button mat-raised-button color="accent" 
-                       style="margin-left: 5px;"
-                       [routerLink]="['/movies', movie.id, 'editReactive']">
-                Edit Reactive
-               </button>
-
-               
-            </div>
-        </div>
- </div>
+﻿<div class="container">
+  <div>
+    <img [src]="movie.imageurl" />
+  </div>
+  <div class="card">
+    <mat-card>
+      <h3>
+        <p>
+          {{ movie.title }}
+        </p>
+      </h3>
+      <hr />
+      <p>
+        <span class="param">Description:</span>
+        {{ movie.description }}
+      </p>
+      <p>
+        <span class="param">Director:</span>
+        {{ movie.director }}
+      </p>
+      <p>
+        <span class="param">Release Date:</span>
+        {{ movie.releaseDate | date }}
+      </p>
+      <p>
+        <span class="param">MPAA Film Rating:</span>
+        {{ movie.mpaa | uppercase }}
+      </p>
+      <p>
+        <span class="param">Category:</span>
+        {{ movie.category }}
+      </p>
+      <p>
+        <span class="param">Tags:</span>
+        <mat-chip-list
+          *ngFor="let item of movie.tags"
+          style="display: inline-block"
+        >
+          <mat-chip color="warn" selected>{{ item }}</mat-chip>
+        </mat-chip-list>
+      </p>
+      <p>
+        <span class="param">
+          Star Rating:
+          <app-star style="display: inline-block" [rating]="movie.starRating">
+          </app-star>
+        </span>
+      </p>
+      <p>
+        <span class="param">Audience Approval:</span>
+        {{ movie.approvalRating | percent: "1.0-0" }}
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-right: 5px"
+        (click)="onBack()"
+      >
+        <i class="fa fa-chevron-left"></i>
+        Back
+      </button>
+      <!-- <button mat-raised-button
+           color="warn"
+           [routerLink]="['/movies', movie.id, 'edit']">
+       Edit
+    </button> -->
+      <button mat-raised-button color="accent" style="margin-left: 5px">
+        <i class="fas fa-play-circle fa-2x"></i>
+        <span style="font-size: large; margin-left: 10px">Play</span>
+      </button>
+    </mat-card>
+  </div>
+</div>

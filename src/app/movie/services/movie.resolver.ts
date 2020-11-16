@@ -3,7 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 
 import { Observable } from 'rxjs';
 
-import { Movie } from './movie';
+import { Movie } from '../models/movie';
 import { MovieService } from './movie.service';
 
 @Injectable({
@@ -15,6 +15,6 @@ export class MovieResolver implements Resolve<Movie> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Movie> {
     const id = route.paramMap.get('id');    //we get the param 'id' as a string
-    return this.movieService.getMovie(+id); //with '+' we convert string to number 
+    return this.movieService.getMovie(+id); //with '+' we convert string to number
   }
 }

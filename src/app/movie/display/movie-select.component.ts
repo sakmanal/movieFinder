@@ -1,29 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../services/movie.service';
+import { Movie } from '../models/movie';
+import { MovieParameterService } from '../services/movie-parameter.service';
 
-import { MovieService } from '../movie.service';
-import { Movie } from '../movie';
-import { MovieParameterService } from '../movie-parameter.service';
-
-import * as AOS from 'aos';
+type DisplayView = 'list' | 'grid';
 
 @Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.scss']
+  selector: 'app-movie-select',
+  templateUrl: './movie-select.component.html',
+  styleUrls: ['./movie-select.component.scss'],
+    // Need to remove view encapsulation so that the custom tooltip style defined in
+  // `tooltip-custom-class-example.css` will not be scoped to this component's view.
+  encapsulation: ViewEncapsulation.None
 })
-export class MovieListComponent implements OnInit {
-  
+export class MovieSelectComponent implements OnInit {
+
   pageTitle = 'Movie List';
   movies: Movie[];
   filteredMovies: Movie[];
   errorMessage: string;
   load = true;
+  displayView: DisplayView = 'list';
 
   constructor(private movieService: MovieService,
               private movieParameterService: MovieParameterService,
               private route: ActivatedRoute) { }
-  
+
   get listFilter(): string {
     return this.movieParameterService.filterBy;
   }
@@ -32,8 +35,6 @@ export class MovieListComponent implements OnInit {
     this.movieParameterService.filterBy = value;
     this.filteredMovies = this.performFilter(this.listFilter);
   }
-  
-
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -45,17 +46,12 @@ export class MovieListComponent implements OnInit {
       }
       this.getMovies();
     });
-
-    AOS.init({
-        delay: 0, // values from 0 to 3000, with step 50ms
-        duration: 1000 // values from 0 to 3000, with step 50ms
-    });
   }
 
-  getfilter(value:string){  
+  getfilter(value: string) {
     this.listFilter = value;
   }
-  
+
   getMovies(): void {
     this.movieService.getMovies()
        .subscribe(
@@ -65,7 +61,7 @@ export class MovieListComponent implements OnInit {
         },
         (error) =>  this.errorMessage = error,
         () => this.load = false
-       )
+       );
   }
 
     // Local filter
@@ -78,7 +74,7 @@ export class MovieListComponent implements OnInit {
       }
     }
 
-    // Advanced search
+  // Advanced search
   performSearch(movies: Movie[]): Movie[] {
     const params = this.route.snapshot.queryParamMap;
     if (params.keys.length) {
@@ -95,5 +91,9 @@ export class MovieListComponent implements OnInit {
       );
     }
     return movies;
+  }
+
+  changeView(view: DisplayView): void {
+    this.displayView = view;
   }
 }

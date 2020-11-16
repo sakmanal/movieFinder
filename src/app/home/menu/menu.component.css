@@ -16,7 +16,8 @@ toolbar{
 }
 
 .active{
-  color: rgb(13, 187, 240);
+  color: #6C63FF;
+  font-weight: bold;
 }
 
 .menu-item{
@@ -34,4 +35,9 @@ toolbar{
 
 .welcome{
   font-size: 15px;
+}
+
+.mat-menu-item:hover {
+  background: #6C63FF;
+  color: aliceblue;
 }

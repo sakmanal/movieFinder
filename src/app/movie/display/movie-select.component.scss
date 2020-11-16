@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+
+header {
+  position: relative;
+  max-width: 100%;
+  display: block;
+  overflow: hidden;
+  background: #21212163;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.80), 0 6px 6px rgba(0,0,0,0.50);
+  border-radius: 5px;
+  padding: 15px;
+  margin: 3px 0;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.main {
+  margin: 0;
+  min-height: calc(100vh - 64px);
+  font-family: 'Montserrat', helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  overflow-x: hidden; //for AOS animations
+  overflow-y: hidden;
+}
+
+.icon {
+  margin-left: 10px;
+  margin-right: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+.color {
+  color: #5552ff;
+}
+
+.toolpit {
+  background: #5552ff;
+  font-size: large;
+}
+
+@media screen and (max-width: 600px) {
+  .flex-container {
+    justify-content: center;
+    align-items: center;
+  }
+  .search {
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+

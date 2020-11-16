@@ -1,46 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
-
 *{
   box-sizing: border-box;
   margin: 0;
-}
-
-header {
-  position: relative;
-  max-width: 100%;
-  display: block;
-  overflow: hidden;
-  background: #21212163;
-  border: 1px solid transparent;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.80), 0 6px 6px rgba(0,0,0,0.50);
-  border-radius: 5px;
-  padding: 10px;
-  margin: 3px 0;
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 20px;
-}
-
-.pageTitle {
-  font-size: 30px; 
-  padding-top: 35px;
-  margin-left: 20px;
-}
-
-
-
-
-
-.main{
-  margin: 0;
-  font-family: 'Montserrat', helvetica, arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  overflow-x: hidden; //for AOS animations
-  overflow-y: hidden;
 }
 
 .movie_card{
@@ -48,7 +8,7 @@ header {
   display: block;
   max-width: 800px;
   height: 350px;
-  margin: 50px auto; 
+  margin: 50px auto;
   overflow: hidden;
   border-radius: 10px;
   .info_section{
@@ -122,7 +82,7 @@ header {
       }
     }
     .movie_social{
-      margin-top:20px;
+      margin-top:17px;
       margin-left:5px;
       padding-left: 15px;
       padding-bottom: 20px;
@@ -143,18 +103,18 @@ header {
   .movie_header{
     width: 60%;
   }
-  
+
   .movie_desc{
     width: 50%;
   }
-  
+
   .info_section{
     background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
   }
-  
+
   .blur_back{
     width: 80%;
-    background-position: -100% 10% !important;  
+    background-position: -100% 10% !important;
   }
 }
 
@@ -162,25 +122,25 @@ header {
 
   .movie_card{
     width: 95%;
-    margin: 70px auto; 
+    margin: 70px auto;
     min-height: 350px;
     height: auto;
   }
-  
+
   .blur_back{
     width: 100%;
-    background-position: 50% 50% !important;  
+    background-position: 50% 50% !important;
   }
-  
+
   .movie_header{
     width: 100%;
     margin-top: 85px;
   }
-  
+
   .movie_desc{
     width: 100%;
   }
-  
+
   .info_section{
     background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
     display: inline-grid;
@@ -189,23 +149,15 @@ header {
 
 
 #bright{
-  box-shadow: 0px 0px 150px -45px rgba(0, 132, 255, 0.5);
   &:hover{
-    box-shadow: 0px 0px 120px -55px rgba(252, 122, 0, 0.5);
+    box-shadow: 0px 0px 150px -45px #5552ff7a;
   }
 }
 
-
-.alert {
-  padding: 20px;
-  background-color: #e24e4e;
-  color: white;
-}
-
 .approvalRating {
-   color: #a5fa9a;
+  color: #a5fa9a;
 }
 
 .title {
-  cursor: pointer;
+ cursor: pointer;
 }

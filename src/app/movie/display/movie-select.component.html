@@ -1,0 +1,29 @@
+<app-spinner *ngIf="load" color="#5552ff" class="spinner"></app-spinner>
+
+<div class="main">
+  <header>
+    <div class="flex-container">
+      <div>
+      <span class="pageTitle">{{pageTitle}}</span>
+        <i class="fas fa-list fa-2x icon"
+           [class.color]="displayView === 'list'"
+           matTooltip="List View"
+           matTooltipClass="toolpit"
+           (click)="changeView('list')"
+           ></i>
+        <i class="fas fa-th fa-2x icon"
+           [class.color]="displayView === 'grid'"
+           matTooltip="Grid View"
+           matTooltipClass="toolpit"
+           (click)="changeView('grid')"
+           ></i>
+      </div>
+      <app-search (searchFilter)="getfilter($event)" class="search"></app-search>
+    </div>
+  </header>
+  <ng-container *ngIf="movies && movies.length">
+    <app-movie-list [movies]="filteredMovies" *ngIf="displayView === 'list'"></app-movie-list>
+    <app-movie-grid [movies]="filteredMovies" *ngIf="displayView === 'grid'"></app-movie-grid>
+  </ng-container>
+</div>
+

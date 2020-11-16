@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { Movie } from './movie';
+import { Movie } from '../models/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +38,7 @@ export class MovieService {
     console.error(err);
     return throwError(errorMessage);
   }
-  
+
   getMovie(id: number): Observable<Movie> {
     if (id === 0) {
       return of(this.initializeMovie());

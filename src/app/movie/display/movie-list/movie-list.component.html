@@ -1,0 +1,5 @@
+<ng-container *ngFor="let movie of movies; let i = index" >
+  <div [attr.data-aos] = " i % 2 == 0 ? 'fade-right' : 'fade-left'">
+    <app-movie-card [movie]="movie"></app-movie-card>
+  </div>
+</ng-container>

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
+.container {
+  input {
+    font-family: 'Inconsolata', monospace;
+    height: 50px;
+    outline: none;
+    border: none;
+    background: rgb(109, 102, 104);
+    color: white;
+    padding: 0 80px 0 20px;
+    border-radius: 30px;
+    opacity: 1;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+    cursor: text;
+    &:hover {
+      box-shadow: 0 0 15px 0 #5452FF,
+    }
+    &::placeholder {
+      color: white;
+      opacity: 0.5;
+      font-weight: bolder;
+    }
+  }
+}

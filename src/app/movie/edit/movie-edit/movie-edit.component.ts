@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; 
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { Movie } from '../../movie';
-import { MovieService } from '../../movie.service';
+import { Movie } from '../../models/movie';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-edit',
@@ -10,7 +10,7 @@ import { MovieService } from '../../movie.service';
   styleUrls: ['./movie-edit.component.css']
 })
 export class MovieEditComponent implements OnInit {
-  
+
   pageTitle = 'Movie Edit';
   errorMessage = '';
 
@@ -20,7 +20,7 @@ export class MovieEditComponent implements OnInit {
 
   get isDirty(): boolean {
     //movie objects comprasion
-    //(Works when we have simple JSON-style objects without methods and DOM nodes inside) 
+    //(Works when we have simple JSON-style objects without methods and DOM nodes inside)
     //objects MUST have the same order on their properties
     return JSON.stringify(this.originalMovie) !== JSON.stringify(this.currentMovie)
   }
@@ -33,10 +33,10 @@ export class MovieEditComponent implements OnInit {
     //currentMovie is the same as movie (same reference)
     //every time movie changes(e.g. from movie-edit-component) -> currentMovie changes too !!
     this.currentMovie = movie;
-     
+
     //above behavior can be logged here
     //setInterval( () => {console.log(this.currentMovie.director, this.originalMovie.director)}, 5000 );
-    
+
     // Clone the object to retain a copy
     // this.originalMovie = movie --- we pass it with reference, we don't want this
     this.originalMovie = Object.assign({}, movie);
@@ -48,8 +48,8 @@ export class MovieEditComponent implements OnInit {
 
   ngOnInit() {
     //use resolver to get the movie
-    // Watch for changes to the resolve data 
-    //if we press add-new-movie button (same component as this) 
+    // Watch for changes to the resolve data
+    //if we press add-new-movie button (same component as this)
     //below code executes again because we have subscribed to the resole data
     this.route.data.subscribe(data => {
       const dataName = 'movie';
@@ -59,7 +59,7 @@ export class MovieEditComponent implements OnInit {
 
     //not working the same--executes only once
     //const m = this.route.snapshot.data["movie"];
-    //this.onMovieRetrieved(m); 
+    //this.onMovieRetrieved(m);
   }
 
   onMovieRetrieved(movie: Movie): void {
@@ -95,7 +95,7 @@ export class MovieEditComponent implements OnInit {
       this.errorMessage = 'Please correct the validation errors.';
     }
   }
-  
+
   onSaveComplete(message?: string): void {  // ? means message parameter is optional
     console.log(message);
     this.reset();

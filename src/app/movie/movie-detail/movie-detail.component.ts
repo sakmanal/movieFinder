@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Movie } from '../movie';
+import { Movie } from '../models/movie';
 
 @Component({
   selector: 'app-movie-detail',
@@ -14,8 +14,6 @@ export class MovieDetailComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    //use resolver to get the movie
-    //dataname should be the same as resolver property in routes path
     const dataName = 'movie';
     this.movie = this.route.snapshot.data[dataName];
   }

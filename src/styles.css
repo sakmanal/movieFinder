@@ -5,6 +5,7 @@ body {
     margin: 0;
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
   }
 
 html, body { height: 100%; }
@@ -12,4 +13,11 @@ html, body { height: 100%; }
 .error {
   color: red;
   font-size: 12px;
+}
+
+.spinner {
+  z-index: 99 !important;
+  position: fixed;
+  top: 30%;
+  left: calc(50% - 30px);
 }

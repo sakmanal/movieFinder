@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Movie } from '../../movie';
-import { MovieService } from '../../movie.service';
+import { Movie } from '../../models/movie';
+import { MovieService } from '../../services/movie.service';
 
 import { NumberValidators } from '@app/shared/validators/number.validator';
 
