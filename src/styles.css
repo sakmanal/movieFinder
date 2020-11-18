@@ -8,8 +8,6 @@ body {
     height: 100%;
   }
 
-html, body { height: 100%; }
-
 .error {
   color: red;
   font-size: 12px;

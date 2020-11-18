@@ -1,7 +1,7 @@
 <app-spinner *ngIf="load" color="#5552ff" class="spinner"></app-spinner>
 
 <div class="main">
-  <header>
+  <div class="header">
     <div class="flex-container">
       <div>
       <span class="pageTitle">{{pageTitle}}</span>
@@ -20,7 +20,7 @@
       </div>
       <app-search (searchFilter)="getfilter($event)" class="search"></app-search>
     </div>
-  </header>
+  </div>
   <ng-container *ngIf="movies && movies.length">
     <app-movie-list [movies]="filteredMovies" *ngIf="displayView === 'list'"></app-movie-list>
     <app-movie-grid [movies]="filteredMovies" *ngIf="displayView === 'grid'"></app-movie-grid>
