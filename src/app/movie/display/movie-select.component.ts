@@ -10,7 +10,7 @@ type DisplayView = 'list' | 'grid';
   selector: 'app-movie-select',
   templateUrl: './movie-select.component.html',
   styleUrls: ['./movie-select.component.scss'],
-    // Need to remove view encapsulation so that the custom tooltip style defined in
+  // Need to remove view encapsulation so that the custom tooltip style defined in
   // `tooltip-custom-class-example.css` will not be scoped to this component's view.
   encapsulation: ViewEncapsulation.None
 })

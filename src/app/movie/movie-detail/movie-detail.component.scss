@@ -5,9 +5,34 @@
 
   display: flex;
   align-items: center;
-  img {
-    height: calc(100vh - 68px);
+  .img-container {
+    position: relative;
+    img {
+      height: calc(100vh - 68px);
+    }
+    .btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      background-color: #673AB7;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 50%;
+      width: 75px;
+      height: 75px;
+      cursor: pointer;
+      text-align: center;
+      &:hover {
+        background-color: #C62828;
+        box-shadow: 0px 0px 10px rgb(255, 110, 100);
+        text-shadow: 0px 0px 10px rgb(255, 110, 100);
+      }
+    }
   }
+
   .card {
     width: 100%;
     margin: 10px;

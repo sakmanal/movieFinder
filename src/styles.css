@@ -19,3 +19,7 @@ body {
   top: 30%;
   left: calc(50% - 30px);
 }
+
+*:focus {
+  outline: 0;
+}
