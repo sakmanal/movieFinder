@@ -7,7 +7,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { SearchComponent } from './components/search/search.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectInputComponent } from './components/select-input/select-input.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,15 @@ import { FormsModule } from '@angular/forms';
     RangeValidatorDirective,
     SpinnerComponent,
     MovieCardComponent,
-    SearchComponent
+    SearchComponent,
+    SelectInputComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,
@@ -29,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     StarComponent,
     RangeValidatorDirective,
     MovieCardComponent,
-    SearchComponent
+    SearchComponent,
+    SelectInputComponent
   ]
 })
 export class SharedModule { }

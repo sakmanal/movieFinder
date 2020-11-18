@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../models/movie';
 import { MovieParameterService } from '../services/movie-parameter.service';
+import { ToastrService } from 'ngx-toastr';
+import { Categories } from '../models/categories';
 
 type DisplayView = 'list' | 'grid';
 
@@ -19,22 +21,32 @@ export class MovieSelectComponent implements OnInit {
   pageTitle = 'Movie List';
   movies: Movie[];
   filteredMovies: Movie[];
-  errorMessage: string;
   load = true;
   displayView: DisplayView = 'list';
+  movieCategories = Categories;
+  orderBy = 'Rating';
 
   constructor(private movieService: MovieService,
+              private toastrService: ToastrService,
               private movieParameterService: MovieParameterService,
               private route: ActivatedRoute) { }
 
   get listFilter(): string {
     return this.movieParameterService.filterBy;
   }
-
   set listFilter(value: string) {
     this.movieParameterService.filterBy = value;
     this.filteredMovies = this.performFilter(this.listFilter);
   }
+
+  get orderView(): string {
+    return this.orderBy;
+  }
+  set orderView(order: string) {
+    this.orderBy = order;
+    console.log(order)
+  }
+
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -59,7 +71,7 @@ export class MovieSelectComponent implements OnInit {
           this.movies = this.performSearch(movies);
           this.filteredMovies = this.performFilter(this.listFilter);
         },
-        (error) =>  this.errorMessage = error,
+        (error) =>  this.toastrService.error(error),
         () => this.load = false
        );
   }
@@ -78,7 +90,7 @@ export class MovieSelectComponent implements OnInit {
   performSearch(movies: Movie[]): Movie[] {
     const params = this.route.snapshot.queryParamMap;
     if (params.keys.length) {
-      this.pageTitle = 'Movie List From Advanced Search';
+      this.pageTitle = 'Advanced Search';
       return movies.filter((movie: Movie) =>
         (params.get('title') ?
           movie.title.toLocaleLowerCase().indexOf(params.get('title').toLocaleLowerCase()) !== -1 : true) &&
