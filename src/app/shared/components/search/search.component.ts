@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -7,15 +9,25 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  @Output() searchFilter = new EventEmitter<string>();
-
-  set search(value: string) {
-      this.searchFilter.emit(value);
+  searchField = new FormControl();
+  @Input() placeholder = 'Search...';
+  @Input() set search(value: string) {
+   this.searchField.setValue(value);
   }
+  @Output() searchChange = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+    this.searchField.valueChanges.pipe(
+      distinctUntilChanged((prev, curr) => prev === curr),
+    ).subscribe(
+      value => this.searchChange.emit(value)
+    );
+  }
+
+  clear() {
+    this.searchField.setValue('');
   }
 
 }

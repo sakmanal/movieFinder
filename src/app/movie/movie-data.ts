@@ -19,7 +19,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.88,
         title: 'The Lord of the Rings: The Fellowship of the Ring',
         category: 'Action',
-        tags: ['Action', 'Adventure', 'Hobbits']
+        tags: ['Action', 'Adventure', 'Hobbits'],
+        ytId: 'TrJJ6ncp1fc'
       },
       {
         id: 2,
@@ -34,7 +35,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.5,
         approvalRating: 0.94,
         category: 'Crime',
-        tags: ['Crime', 'Drama']
+        tags: ['Crime', 'Drama'],
+        ytId: 'o5qXCzknxn8'
       },
       {
         id: 3,
@@ -49,7 +51,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.6,
         approvalRating: 0.64,
         category: 'Crime',
-        tags: ['Action', 'Crime', 'Drama']
+        tags: ['Action', 'Crime', 'Drama'],
+        ytId: 'dUewAMH2rK8'
       },
       {
         id: 4,
@@ -63,7 +66,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.7,
         approvalRating: 0.62,
         category: 'Drama',
-        tags: ['Drama']
+        tags: ['Drama'],
+        ytId: 'nOzR5Jnd6bU'
       },
       {
         id: 5,
@@ -77,7 +81,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.7,
         approvalRating: 0.85,
         category: 'Drama',
-        tags: ['Biography', 'Drama', 'Music' ]
+        tags: ['Biography', 'Drama', 'Music' ],
+        ytId: 'DENCBZF0wd8'
       },
       {
         id: 6,
@@ -91,7 +96,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.7,
         approvalRating: 0.85,
         category: 'Crime',
-        tags: ['Crime', 'Drama', 'Thriller']
+        tags: ['Crime', 'Drama', 'Thriller'],
+        ytId: 'yicP7ZEEz1k'
       },
       {
         id: 7,
@@ -105,7 +111,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.8,
         approvalRating: 0.66,
         category: 'Mystery',
-        tags: ['Drama', 'Mystery', 'Sci-Fi' ]
+        tags: ['Drama', 'Mystery', 'Sci-Fi' ],
+        ytId: 'C4Rrj5eRdy0'
       },
       {
         id: 8,
@@ -120,7 +127,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.8,
         approvalRating: 0.59,
         category: 'Drama',
-        tags: ['Crime', 'Drama', 'Thriller']
+        tags: ['Crime', 'Drama', 'Thriller'],
+        ytId: 'JeyVU4nMWCg'
       },
       {
         id: 9,
@@ -135,7 +143,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.9,
         approvalRating: 0.85,
         category: 'Thriller',
-        tags: ['Crime', 'Drama', 'Thriller']
+        tags: ['Crime', 'Drama', 'Thriller'],
+        ytId: 'CC9VDQOgD5U'
       },
       {
         id: 10,
@@ -149,7 +158,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.9,
         approvalRating: 0.65,
         category: 'Crime',
-        tags: ['Crime', 'Drama', 'Mystery']
+        tags: ['Crime', 'Drama', 'Mystery'],
+        ytId: '1giVzxyoclE'
       },
       {
         id: 11,
@@ -163,7 +173,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.0,
         approvalRating: 0.61,
         category: 'Drama',
-        tags: ['Crime', 'Drama', 'Fantasy']
+        tags: ['Crime', 'Drama', 'Fantasy'],
+        ytId: 'CmxArNBJHFQ'
       },
       {
         id: 12,
@@ -178,7 +189,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.0,
         approvalRating: 0.91,
         category: 'Drama',
-        tags: ['Drama', 'War']
+        tags: ['Drama', 'War'],
+        ytId: 'hdBEyitJ7Qc'
       },
       {
         id: 13,
@@ -192,7 +204,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.0,
         approvalRating: 0.79,
         category: 'Crime',
-        tags: ['Crime', 'Drama']
+        tags: ['Crime', 'Drama'],
+        ytId: '1m5gxQh5jeo'
       },
       {
         id: 14,
@@ -206,7 +219,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.1,
         approvalRating: 0.74,
         category: 'Adventure',
-        tags: ['Adventure', 'Drama', 'Sci-Fi']
+        tags: ['Adventure', 'Drama', 'Sci-Fi'],
+        ytId: 'a3lcGnMhvsA'
       },
       {
         id: 15,
@@ -221,7 +235,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.5,
         approvalRating: 0.98,
         category: 'Action',
-        tags: ['Action', 'Adventure', 'Hobbits']
+        tags: ['Action', 'Adventure', 'Hobbits'],
+        ytId: 'Pis3veqKl8k'
       },
       {
         id: 16,
@@ -236,7 +251,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.1,
         approvalRating: 0.96,
         category: 'Comedy',
-        tags: ['Comedy', 'Drama', 'Thriller' ]
+        tags: ['Comedy', 'Drama', 'Thriller' ],
+        ytId: 'QEtXulqEAk4'
       },
       {
         id: 17,
@@ -251,7 +267,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.2,
         approvalRating: 0.82,
         category: 'Action',
-        tags: ['Action', 'Adventure', 'Fantasy']
+        tags: ['Action', 'Adventure', 'Fantasy'],
+        ytId: 'fjWxTbVI0cw'
       },
       {
         id: 18,
@@ -266,7 +283,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.3,
         approvalRating: 0.9,
         category: 'Biography',
-        tags: ['Biography', 'Crime', 'Drama' ]
+        tags: ['Biography', 'Crime', 'Drama' ],
+        ytId: 'ZwWCxIV6-GQ'
       },
       {
         id: 19,
@@ -281,7 +299,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.3,
         approvalRating: 0.73,
         category: 'Action',
-        tags: ['Action', 'Sci-Fi']
+        tags: ['Action', 'Sci-Fi'],
+        ytId: '8fT-l0YYLHI'
       },
       {
         id: 20,
@@ -296,7 +315,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.4,
         approvalRating: 0.82,
         category: 'Drama',
-        tags: ['Drama', 'Romance']
+        tags: ['Drama', 'Romance'],
+        ytId: 'nFvASiMTDz0'
       },
       {
         id: 21,
@@ -311,7 +331,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.4,
         approvalRating: 0.66,
         category: 'Drama',
-        tags: ['Drama']
+        tags: ['Drama'],
+        ytId: 'NHXXqlcCxPs'
       },
       {
         id: 22,
@@ -325,7 +346,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.5,
         approvalRating: 0.74,
         category: 'Action',
-        tags: [ 'Action', 'Adventure', 'Sci-Fi' ]
+        tags: [ 'Action', 'Adventure', 'Sci-Fi' ],
+        ytId: 'mnsahVaa_0Q'
       },
       {
         id: 23,
@@ -339,7 +361,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.8,
         approvalRating: 0.84,
         category: 'Action',
-        tags: [ 'Action', 'Crime', 'Drama' ]
+        tags: [ 'Action', 'Crime', 'Drama' ],
+        ytId: 'vetKTtM7YyU'
       },
       {
         id: 24,
@@ -353,7 +376,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.8,
         approvalRating: 1.0,
         category: 'Crime',
-        tags: ['Crime', 'Drama']
+        tags: ['Crime', 'Drama'],
+        ytId: 'i96VS_z8y7g'
       },
       {
         id: 25,
@@ -368,7 +392,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.9,
         approvalRating: 0.8,
         category: 'Drama',
-        tags: ['Drama']
+        tags: ['Drama'],
+        ytId: 'ABpeLNCuE3w'
       },
       {
         id: 26,
@@ -383,7 +408,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 4.2,
         approvalRating: 0.94,
         category: 'Action',
-        tags: ['Action', 'Adventure', 'Hobbits']
+        tags: ['Action', 'Adventure', 'Hobbits'],
+        ytId: 'EApCLbgAE5E'
       },
       {
         id: 27,
@@ -397,7 +423,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.9,
         approvalRating: 0.59,
         category: 'Comedy',
-        tags: ['Comedy', 'Drama', 'Romance']
+        tags: ['Comedy', 'Drama', 'Romance'],
+        ytId: 'XToTKqdBtu8'
       },
       {
         id: 28,
@@ -412,7 +439,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.5,
         approvalRating: 0.87,
         category: 'Comedy',
-        tags: ['Adventure', 'Comedy', 'Sci-Fi' ]
+        tags: ['Adventure', 'Comedy', 'Sci-Fi' ],
+        ytId: 'T_WSXXPQYeY'
       },
       {
         id: 29,
@@ -426,7 +454,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.8,
         approvalRating: 0.78,
         category: 'Action',
-        tags: ['Action', 'Adventure', 'Drama']
+        tags: ['Action', 'Adventure', 'Drama'],
+        ytId: 'gFsBpL_Uy6Y'
       },
       {
         id: 30,
@@ -441,7 +470,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.5,
         approvalRating: 0.89,
         category: 'Horror',
-        tags: ['Horror', 'Sci-Fi']
+        tags: ['Horror', 'Sci-Fi'],
+        ytId: 'nPQ7om598OM'
       },
       {
         id: 31,
@@ -456,7 +486,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.8,
         approvalRating: 0.69,
         category: 'Adventure',
-        tags: ['Adventure', 'Drama', 'War']
+        tags: ['Adventure', 'Drama', 'War'],
+        ytId: 'YUi13NeQOd0'
       },
       {
         id: 32,
@@ -471,7 +502,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.3,
         approvalRating: 0.84,
         category: 'Drama',
-        tags: ['Drama']
+        tags: ['Drama'],
+        ytId: 'ED7_y4jETo0'
       },
       {
         id: 33,
@@ -486,7 +518,8 @@ export class MovieData implements InMemoryDbService {
         starRating: 3.5,
         approvalRating: 0.75,
         category: 'Sci-Fi',
-        tags: ['Action', 'Sci-Fi']
+        tags: ['Action', 'Sci-Fi'],
+        ytId: 'XPtVZ69lomk'
       },
     ];
     return { movies };

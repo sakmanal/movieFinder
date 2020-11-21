@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { Movie } from '../../models/movie';
+import { Movie } from '../../../models/movie';
 
 @Component({
   selector: 'app-movie-edit-info',

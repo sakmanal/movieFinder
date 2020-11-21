@@ -1,4 +1,5 @@
 export const Categories = [
+  'All',
   'Action',
   'Crime',
   'Drama',

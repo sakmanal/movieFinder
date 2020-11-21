@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from '../../models/movie';
+import { Movie } from '../../../models/movie';
 import * as AOS from 'aos';
 
 @Component({
-  selector: 'app-movie-grid',
-  templateUrl: './movie-grid.component.html',
-  styleUrls: ['./movie-grid.component.css']
+  selector: 'app-movie-list',
+  templateUrl: './movie-list.component.html',
+  styleUrls: ['./movie-list.component.css']
 })
-export class MovieGridComponent implements OnInit {
+export class MovieListComponent implements OnInit {
 
   movieData: Movie[];
   @Input() set movies(data: Movie[]) {
@@ -23,7 +23,7 @@ export class MovieGridComponent implements OnInit {
   ngOnInit() {
     AOS.init({
       delay: 0, // values from 0 to 3000, with step 50ms
-      duration: 1000 // values from 0 to 3000, with step 50ms
+      duration: 500 // values from 0 to 3000, with step 50ms
     });
   }
 

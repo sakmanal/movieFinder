@@ -4,5 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MovieParameterService {
-  filterBy = '';
+  filterByTitle = '';
+  category = 'All';
+  orderBy = 'Most Popular';
+  displayView = 'list';
+
+  removeFilters(): void {
+    this.filterByTitle = '';
+    this.category = 'All';
+    this.orderBy = 'Most Popular';
+  }
 }

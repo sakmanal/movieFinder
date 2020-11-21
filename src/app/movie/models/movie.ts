@@ -11,4 +11,5 @@ export interface Movie {
     title: string;
     category: string;
     tags?: string[];
+    ytId?: string;
   }

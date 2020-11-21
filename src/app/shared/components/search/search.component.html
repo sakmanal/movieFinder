@@ -1,4 +1,5 @@
 <div class="container">
-  <input type="text" placeholder="Search..." [(ngModel)]="search">
+  <input type="text" [placeholder]="placeholder" [formControl]="searchField">
+  <i class="far fa-times-circle fa-2x clear" (click)="clear()" *ngIf="searchField.value"></i>
 </div>
 

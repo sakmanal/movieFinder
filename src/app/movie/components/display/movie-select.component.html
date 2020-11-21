@@ -24,24 +24,28 @@
       </div>
       <app-select-input
         label="order by:"
-        [options]="['Release Date', 'Rating', 'Audience Approval']"
-        [(option)]="orderView"
+        [options]="['Release Date', 'Rating', 'Audience Approval', 'Most Popular']"
+        [option]="orderBy"
+        (optionChange)="changeOrderBy($event)"
         class="select"
       >
       </app-select-input>
       <app-select-input
         label="Category:"
         [options]="movieCategories"
+        [option]="category"
+        (optionChange)="changeCategory($event)"
         class="select"
       >
       </app-select-input>
       <app-search
-        (searchFilter)="getfilter($event)"
+        [search]="title"
+        (searchChange)="searchByTitle($event)"
         class="search"
       ></app-search>
     </div>
   </div>
-  <ng-container *ngIf="movies && movies.length">
+  <ng-container *ngIf="filteredMovies && filteredMovies.length">
     <app-movie-list
       [movies]="filteredMovies"
       *ngIf="displayView === 'list'"

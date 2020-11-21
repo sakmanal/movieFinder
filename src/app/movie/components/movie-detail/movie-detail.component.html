@@ -1,7 +1,7 @@
 ﻿<div class="container">
   <div class="img-container">
     <img [src]="movie.imageurl" />
-    <button class="btn"><i class="fas fa-play-circle fa-3x"></i></button>
+    <button class="btn"><i class="fas fa-play-circle fa-3x" [routerLink]="['/play', movie.ytId]"></i></button>
   </div>
   <div class="card">
     <mat-card>
@@ -65,7 +65,7 @@
            [routerLink]="['/movies', movie.id, 'edit']">
        Edit
     </button> -->
-      <button mat-raised-button color="accent" style="margin-left: 5px">
+      <button mat-raised-button color="accent" style="margin-left: 5px" [routerLink]="['/play', movie.ytId]">
         <i class="fas fa-play-circle fa-2x"></i>
         <span style="font-size: large; margin-left: 10px">Play</span>
       </button>
