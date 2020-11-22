@@ -55,4 +55,6 @@
       *ngIf="displayView === 'grid'"
     ></app-movie-grid>
   </ng-container>
+  <div *ngIf="!load && filteredMovies.length === 0" class="notfound">No movies found.</div>
 </div>
+<app-scroll-top></app-scroll-top>
