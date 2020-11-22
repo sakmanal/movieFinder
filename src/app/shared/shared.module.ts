@@ -9,6 +9,7 @@ import { MaterialModule } from '../material.module';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectInputComponent } from './components/select-input/select-input.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SelectInputComponent } from './components/select-input/select-input.com
     SpinnerComponent,
     MovieCardComponent,
     SearchComponent,
-    SelectInputComponent
+    SelectInputComponent,
+    ScrollTopComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { SelectInputComponent } from './components/select-input/select-input.com
     RangeValidatorDirective,
     MovieCardComponent,
     SearchComponent,
-    SelectInputComponent
+    SelectInputComponent,
+    ScrollTopComponent
   ]
 })
 export class SharedModule { }

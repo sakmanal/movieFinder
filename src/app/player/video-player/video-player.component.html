@@ -1,3 +1,17 @@
-<div id="player"></div>
-
+<div class="wrapper">
+  <div id="player"></div>
+  <div *ngIf="state$ | async as state" class="controls">
+    <button mat-flat-button color="warn" (click)="stop()">
+      <i class="fas fa-times-circle fa-lg"></i>
+      exit
+    </button>
+    <button mat-flat-button color="accent" *ngIf="state.paused" (click)="play()">
+      <i class="fas fa-play fa-lg"></i>
+      Play
+    </button>
+    <button mat-flat-button color="accent" *ngIf="state.playing" (click)="pause()">
+      <i class="fas fa-pause fa-lg"></i>
+      Pause
+    </button>  </div>
+</div>
 

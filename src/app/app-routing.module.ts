@@ -15,15 +15,15 @@ const routes: Routes = [
         path: 'movies',
         canActivate: [AuthGuard],
         loadChildren: () => import('./movie/movie.module').then(m => m.MovieModule)
-      },
-      {
-        path: 'play',
-        canActivate: [AuthGuard],
-        loadChildren: () => import('./player/player.module').then(m => m.PlayerModule)
-      },
+      }
     ]
   },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  {
+    path: 'play',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./player/player.module').then(m => m.PlayerModule)
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 

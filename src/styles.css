@@ -1,12 +1,17 @@
 @import '~ngx-toastr/toastr';
 
 body {
-    background: rgba(0, 0, 0, 0.9);
-    margin: 0;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 100%;
-  }
+  background: rgba(0, 0, 0, 0.9);
+  margin: 0;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100%;
+}
+
+
+html {
+  height: 100%;
+}
 
 .error {
   color: red;
