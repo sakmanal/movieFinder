@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../../../core/models/movie';
-import * as AOS from 'aos';
-
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
