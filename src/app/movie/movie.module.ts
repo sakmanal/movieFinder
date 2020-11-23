@@ -15,6 +15,7 @@ import { MovieEditReactiveComponent } from './components/edit/movie-edit-reactiv
 import { MovieListComponent } from './components/display/movie-list/movie-list.component';
 import { MovieGridComponent } from './components/display/movie-grid/movie-grid.component';
 import { MovieRoutingModule } from './movie-routing.module';
+import { WatchlistComponent } from './components/watchlist/watchlist.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MovieRoutingModule } from './movie-routing.module';
     MovieEditTagsComponent,
     MovieEditReactiveComponent,
     MovieListComponent,
-    MovieGridComponent
+    MovieGridComponent,
+    WatchlistComponent
   ],
   imports: [
     CommonModule,

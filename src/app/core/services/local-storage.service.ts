@@ -11,7 +11,7 @@ export class LocalStorageService {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
-  getItem(key: string): string {
+  getItem(key: string): any {
     try {
       const item = localStorage.getItem(key);
 

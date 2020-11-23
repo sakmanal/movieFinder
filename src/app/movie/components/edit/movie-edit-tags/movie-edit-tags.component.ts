@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Movie } from '../../../models/movie';
+import { Movie } from '../../../../core/models/movie';
 
 @Component({
   selector: 'app-movie-edit-tags',

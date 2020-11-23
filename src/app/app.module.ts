@@ -10,7 +10,7 @@ import { MenuComponent } from './home/menu/menu.component';
 import { PageNotFoundComponent } from './home/page-not-found.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { MovieData } from './movie/movie-data';
+import { MovieData } from './mock/movie-data';
 import { TokenInterceptor } from '@auth/interceptors/token.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, filter, switchMap, take } from 'rxjs/operators';
 
-import { LocalStorageService } from '../services/local-storage.service';
+import { LocalStorageService } from '@core/services/local-storage.service';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()

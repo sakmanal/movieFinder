@@ -4,6 +4,7 @@ import { NG_VALIDATORS, Validator, AbstractControl, ValidatorFn } from '@angular
 import { NumberValidators } from '../validators/number.validator';
 
 @Directive({
+  // tslint:disable-next-line: directive-selector
   selector: '[mhRange][ngModel]',
   providers: [
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => RangeValidatorDirective), multi: true }

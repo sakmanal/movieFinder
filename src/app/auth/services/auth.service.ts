@@ -5,7 +5,7 @@ import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { environment } from '@env/environment';
 import { User } from '../models/user';
 import { LoginResponse, RegisterResponse, AvailableUserResponse, AvailableEmailResponse } from '../models/authResponces';
-import { LocalStorageService } from './local-storage.service';
+import { LocalStorageService } from '@core/services/local-storage.service';
 import { Token } from '../models/token';
 import { LoginFormData, RegisterFormData } from '../models/authData';
 import { MockHttpService } from '../fake-server/mock-http.service';

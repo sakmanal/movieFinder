@@ -17,14 +17,15 @@
       </p>
     </div>
     <div class="movie_social">
-        <button mat-raised-button color="warn" [routerLink]="['/movies', movie.id]">
+        <button mat-raised-button color="warn" style="margin:2px" [routerLink]="['/movies', movie.id]">
           <i class="fas fa-info-circle"></i>
           Details
         </button>
-        <button mat-raised-button color="accent" style="margin-left:5px" [routerLink]="['/play', movie.ytId]">
+        <button mat-raised-button color="accent" style="margin:2px" [routerLink]="['/play', movie.ytId]">
               <i class="fas fa-play-circle fa-2x"></i>
               <span style="font-size: large; margin-left: 10px;">Play</span>
         </button>
+        <app-my-list-button style="margin:2px"></app-my-list-button>
     </div>
   </div>
   <div class="blur_back" [ngStyle]="{'background-image': 'url(' + movie.imageurl + ')'}"></div>

@@ -1,0 +1,18 @@
+<span class="alternate-theme">
+  <button *ngIf="listed; else remove"
+          mat-raised-button
+          (click)="listMovie()"
+          color="accent">
+    <i class="fas fa-minus-circle"></i>
+    Remove from my List
+  </button>
+  <ng-template #remove>
+    <button mat-raised-button
+        (click)="listMovie()"
+        color="warn">
+      <i class="fas fa-plus-circle"></i>
+      Add to my List
+    </button>
+  </ng-template>
+</span>
+

@@ -10,6 +10,7 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectInputComponent } from './components/select-input/select-input.component';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { MyListButtonComponent } from './components/my-list-button/my-list-button.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     MovieCardComponent,
     SearchComponent,
     SelectInputComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
+    MyListButtonComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { ScrollTopComponent } from './components/scroll-top/scroll-top.component
     MovieCardComponent,
     SearchComponent,
     SelectInputComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
+    MyListButtonComponent
   ]
 })
 export class SharedModule { }

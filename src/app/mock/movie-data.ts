@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-import { Movie } from './models/movie';
+import { Movie } from '@core/models/movie';
 
 export class MovieData implements InMemoryDbService {
 

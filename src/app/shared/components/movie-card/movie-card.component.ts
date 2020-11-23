@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Movie } from '@app/movie/models/movie';
-import * as AOS from 'aos';
+import { Movie } from '@core/models/movie';
 
 @Component({
   selector: 'app-movie-card',

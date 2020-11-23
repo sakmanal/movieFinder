@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MovieService } from '../../services/movie.service';
-import { Movie } from '../../models/movie';
+import { MovieService } from '@core/services/movie.service';
+import { Movie } from '@core/models/movie';
 import { MovieParameterService } from '../../services/movie-parameter.service';
 import { ToastrService } from 'ngx-toastr';
 import { Categories } from '../../models/categories';

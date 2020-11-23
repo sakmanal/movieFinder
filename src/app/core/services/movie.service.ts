@@ -18,14 +18,12 @@ export class MovieService {
   getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.moviesUrl)
       .pipe(
-        tap(data => console.log(data)),
+        // tap(data => console.log(data)),
         catchError(this.handleError)
       );
   }
 
   private handleError(err: any) {
-    // in a real world app, we may send the server to some remote logging infrastructure
-    // instead of just logging it to the console
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -46,9 +44,7 @@ export class MovieService {
     const url = `${this.moviesUrl}/${id}`;
     return this.http.get<Movie>(url)
       .pipe(
-        //no need to log stringify data
-        //tap(data => console.log('Data: ' + JSON.stringify(data))),
-        tap(data => console.log(data)),
+        // tap(data => console.log(data)),
         catchError(this.handleError)
       );
   }
@@ -83,7 +79,7 @@ export class MovieService {
     movie.id = null;
     return this.http.post<Movie>(this.moviesUrl, movie, { headers })
       .pipe(
-        tap(data => console.log('createMovie: ' + JSON.stringify(data))),
+        // tap(data => console.log('createMovie: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
@@ -92,7 +88,7 @@ export class MovieService {
     const url = `${this.moviesUrl}/${movie.id}`;
     return this.http.put<Movie>(url, movie, { headers })
       .pipe(
-        tap(data => console.log('updateMovie: ' + movie.id)),
+        // tap(data => console.log('updateMovie: ' + movie.id)),
         catchError(this.handleError)
       );
   }
@@ -103,7 +99,7 @@ export class MovieService {
     const url = `${this.moviesUrl}/${id}`;
     return this.http.delete<Movie>(url, { headers })
       .pipe(
-        tap(data => console.log('deleteMovie: ' + JSON.stringify(data))),
+        // tap(data => console.log('deleteMovie: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }

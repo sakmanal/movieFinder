@@ -9,10 +9,12 @@ import { MovieEditComponent } from './components/edit/movie-edit/movie-edit.comp
 import { MovieEditInfoComponent } from './components/edit/movie-edit-info/movie-edit-info.component';
 import { MovieEditTagsComponent } from './components/edit/movie-edit-tags/movie-edit-tags.component';
 import { MovieEditReactiveComponent } from './components/edit/movie-edit-reactive/movie-edit-reactive.component';
+import { WatchlistComponent } from './components/watchlist/watchlist.component';
 
 const movieRoutes: Routes = [
   { path: '', component: MovieSelectComponent },
   { path: 'search', component: MovieSearchComponent },
+  { path: 'myList', component: WatchlistComponent },
   {
     path: ':id',
     resolve: { movie: MovieResolver },
