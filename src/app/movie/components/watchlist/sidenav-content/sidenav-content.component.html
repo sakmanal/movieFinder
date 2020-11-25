@@ -1,0 +1,11 @@
+<div *ngIf="movie">
+   <div class="sidenav-content" [ngStyle]="{'background-image': 'url(' + movie.imageurl + ')'}"></div>
+   <div class="main-content">
+     <div class="info">
+        <div class="title">{{movie.title | uppercase}}</div>
+        <div>{{movie.category}}</div>
+        <div>{{movie.description}}</div>
+        <app-watchlist-button [movieId]="movie.id"></app-watchlist-button>
+     </div>
+  </div>
+</div>

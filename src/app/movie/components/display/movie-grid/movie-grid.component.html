@@ -1,7 +1,9 @@
 <div class="poster-container">
   <ng-container *ngFor="let movie of movies; let i = index">
-      <div class="poster" [routerLink]="['/movies', movie.id]">
-        <img [src]="movie.imageurl">
-      </div>
+    <app-poster
+      [posterImgUrl]="movie.imageurl"
+      [routerLink]="['/movies', movie.id]"
+      class="poster"
+    ></app-poster>
   </ng-container>
 </div>

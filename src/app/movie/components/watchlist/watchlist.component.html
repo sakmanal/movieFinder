@@ -1,1 +1,22 @@
-<p>watchlist works!</p>
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" position="end">
+    <app-sidenav-content [movie]="selectedMovie"></app-sidenav-content>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <ng-container *ngIf="myMovies$ | async as myMovies">
+      <ng-container *ngFor="let movie of myMovies">
+        <app-poster
+          [posterImgUrl]="movie.imageurl"
+          (click)="selectMovie(movie)"
+          class="poster"
+        ></app-poster>
+      </ng-container>
+
+      <div class="notfound" *ngIf="!myMovies.length || !myMovies">You have not added any movie yet !</div>
+    </ng-container>
+  </div>
+
+</mat-drawer-container>
+
+<app-spinner *ngIf="load" color="#5552ff" class="spinner"></app-spinner>

@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectInputComponent } from './components/select-input/select-input.component';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 import { MyListButtonComponent } from './components/my-list-button/my-list-button.component';
+import { PosterComponent } from './components/poster/poster.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MyListButtonComponent } from './components/my-list-button/my-list-butto
     SearchComponent,
     SelectInputComponent,
     ScrollTopComponent,
-    MyListButtonComponent
+    MyListButtonComponent,
+    PosterComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { MyListButtonComponent } from './components/my-list-button/my-list-butto
     SearchComponent,
     SelectInputComponent,
     ScrollTopComponent,
-    MyListButtonComponent
+    MyListButtonComponent,
+    PosterComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,33 @@
+.drawer-container {
+  height: calc(100% - 64px);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  color: whitesmoke;
+}
+
+.sidenav-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.sidenav {
+  background-color: #212121;
+  width: 300px;
+}
+
+.poster {
+  margin-top: 5px;
+}
+
+.notfound {
+  text-align: center;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .drawer-container {
+    height: calc(100% - 56px);
+  }
+}

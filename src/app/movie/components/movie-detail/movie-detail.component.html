@@ -65,12 +65,11 @@
            [routerLink]="['/movies', movie.id, 'edit']">
        Edit
       </button> -->
-      <app-my-list-button style="margin: 5px"></app-my-list-button>
       <button mat-raised-button color="accent" style="margin: 5px" [routerLink]="['/play', movie.ytId]">
         <i class="fas fa-play-circle fa-2x"></i>
         <span style="font-size: large; margin-left: 10px">Play</span>
       </button>
-
+      <app-watchlist-button [movieId]="movie.id" style="margin: 5px"></app-watchlist-button>
     </mat-card>
   </div>
 </div>

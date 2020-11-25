@@ -16,6 +16,8 @@ import { MovieListComponent } from './components/display/movie-list/movie-list.c
 import { MovieGridComponent } from './components/display/movie-grid/movie-grid.component';
 import { MovieRoutingModule } from './movie-routing.module';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
+import { WatchlistButtonComponent } from './components/watchlist-button/watchlist-button.component';
+import { SidenavContentComponent } from './components/watchlist/sidenav-content/sidenav-content.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
     MovieEditReactiveComponent,
     MovieListComponent,
     MovieGridComponent,
-    WatchlistComponent
+    WatchlistComponent,
+    WatchlistButtonComponent,
+    SidenavContentComponent
   ],
   imports: [
     CommonModule,
