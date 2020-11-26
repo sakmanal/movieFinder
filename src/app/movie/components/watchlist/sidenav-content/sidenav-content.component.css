@@ -28,6 +28,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
+  height: 95%;
 }
 
 .title {
@@ -48,6 +49,13 @@
 
 .list-btn {
   margin-top: 5px;
+  flex-grow: 1;
+}
+
+.bottom-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 

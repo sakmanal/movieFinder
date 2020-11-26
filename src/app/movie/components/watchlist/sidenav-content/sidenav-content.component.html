@@ -1,15 +1,43 @@
 <div *ngIf="movie">
-   <div class="sidenav-content" [ngStyle]="{'background-image': 'url(' + movie.imageurl + ')'}"></div>
-   <div class="main-content">
-     <div class="info">
-        <div class="title">{{movie.title | uppercase}}</div>
-        <div class="category-rating">
-          <div>{{movie.category}} | {{movie.releaseDate | date:'y'}}</div>
-          <app-percentage-circle-rating [value]="movie.approvalRating * 100"></app-percentage-circle-rating>
-        </div>
-        <div class="desc">{{movie.description}}</div>
-        <app-watchlist-button [movieId]="movie.id" class="list-btn"></app-watchlist-button>
+  <div
+    class="sidenav-content"
+    [ngStyle]="{ 'background-image': 'url(' + movie.imageurl + ')' }"
+  ></div>
+  <div class="main-content">
+    <div class="info">
+      <div class="title">{{ movie.title | uppercase }}</div>
+      <div class="category-rating">
+        <div>{{ movie.category }} | {{ movie.releaseDate | date: "y" }}</div>
+        <app-percentage-circle-rating
+          [value]="movie.approvalRating * 100"
+        ></app-percentage-circle-rating>
+      </div>
+      <div class="desc">{{ movie.description }}</div>
+      <app-watchlist-button
+        [movieId]="movie.id"
+        class="list-btn"
+      ></app-watchlist-button>
 
-     </div>
+      <div class="bottom-actions">
+        <button
+          mat-raised-button
+          color="accent"
+          [routerLink]="['/play', movie.ytId]"
+          style="flex-grow: 1; margin-right: 5px"
+        >
+          <i class="fas fa-play-circle fa-2x"></i>
+          <span style="font-size: large; margin-left: 10px">Play</span>
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          [routerLink]="['/movies', movie.id, { backurl: 'movies/myList' }]"
+          style="flex-grow: 1"
+        >
+          <i class="fas fa-info-circle"></i>
+          Details
+        </button>
+      </div>
+    </div>
   </div>
 </div>
