@@ -4,7 +4,6 @@ import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
 import { MovieSelectComponent } from './components/display/movie-select.component';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';

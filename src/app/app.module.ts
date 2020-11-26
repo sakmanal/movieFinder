@@ -14,6 +14,7 @@ import { MovieData } from './mock/movie-data';
 import { TokenInterceptor } from '@auth/interceptors/token.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
+import { CoreModule } from './core/core.module';
 
 const ToastrOptions = {
   positionClass: 'toast-bottom-right',
@@ -32,6 +33,7 @@ const ToastrOptions = {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CoreModule,
     ToastrModule.forRoot(ToastrOptions),
     MaterialModule,
     HttpClientModule,

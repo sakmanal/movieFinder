@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">{{ pageTitle }}</div>
 
-  <form novalidate #searchForm="ngForm">
+  <form #searchForm="ngForm" (ngSubmit)="search()">
     <div class="row-div">
       <div class="column right">
         <label>Movie Title:</label>
@@ -32,6 +32,8 @@
           id="inputStarRating"
           type="number"
           name="minStarRating"
+          max="5"
+          min="1"
           ngModel
         />
       </div>
@@ -47,6 +49,8 @@
           id="inputStarRating"
           type="number"
           name="maxStarRating"
+          max="5"
+          min="1"
           ngModel
         />
       </div>
@@ -70,9 +74,8 @@
     <div class="row">
       <button
         mat-raised-button
-        type="button"
+        type="submit"
         color="primary"
-        (click)="search(searchForm.value)"
       >
         Search
       </button>

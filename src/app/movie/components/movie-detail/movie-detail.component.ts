@@ -10,16 +10,21 @@ import { Movie } from '@core/models/movie';
 export class MovieDetailComponent implements OnInit {
 
   movie: Movie;
+  backUrl: string;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const dataName = 'movie';
-    this.movie = this.route.snapshot.data[dataName];
+    const data = this.route.snapshot.data[dataName];
+    if (data) {
+      this.movie = data.movie;
+      this.backUrl = data.backUrl;
+    }
   }
 
   onBack(): void {
-    this.router.navigate(['/movies']);
+    this.router.navigateByUrl(this.backUrl);
   }
 
 }
