@@ -111,8 +111,7 @@ export class MovieSelectComponent implements OnInit {
         this.filteredMovies.sort(compareValues('releaseDate'));
         break;
       default:
-        // the default (most popular) order as we get it from ther server
-        this.filteredMovies = [...this.performFilter(this.title, this.category)];
+        this.filteredMovies.sort(compareValues('id', 'ascending'));
     }
   }
 

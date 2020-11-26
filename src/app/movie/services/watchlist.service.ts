@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject, throwError } from 'rxjs';
 import { LocalStorageService } from '@core/services/local-storage.service';
 import { Movie } from '@core/models/movie';
 import { MovieService } from '@core/services/movie.service';
@@ -10,12 +10,24 @@ import { map } from 'rxjs/operators';
 })
 export class WatchlistService {
 
-  private myWatchListSub: BehaviorSubject<Movie[]> = new BehaviorSubject([]);
-  private mylist: Movie[];
+  /**
+   * We could also use BehaviorSubject.
+   * The last value is cached. A subscriber will get the latest value upon initial subscription
+   * Every time a Component gets 'myWatchListSub' as observale (subscribes to 'updateMylist()')
+   * first wiil get an initial value -- the last emitted movies (last value of 'myWatchListSub'),
+   * then will get the last updated movies with 'myWatchListSub.next(...)' (e.g every time a movie is removed from watchlist)
+   *
+   * with Subject a subscriber will only get published values that were emitted after the subscription.
+   */
+  // private myWatchListSub: BehaviorSubject<Movie[]> = new BehaviorSubject([]);
+  private myWatchListSub: Subject<Movie[]> = new Subject();
 
-  constructor(private localStorageService: LocalStorageService, private movieService: MovieService) {
-    this.updateMylist();
-  }
+  private errorMessage: Subject<string> = new Subject<string>();
+  errorMessage$: Observable<string> = this.errorMessage.asObservable();
+
+  private mylist: Movie[] = [];
+
+  constructor(private localStorageService: LocalStorageService, private movieService: MovieService) { }
 
   addToWatchList(movieID: number): Observable<boolean> {
     const list = this.localStorageService.getItem('WatchList');
@@ -24,7 +36,6 @@ export class WatchlistService {
     } else {
       this.makelist(movieID);
     }
-    this.updateMylist();   //ke only one movie and add it to mylist and then next it
     return of(true);
   }
 
@@ -32,7 +43,6 @@ export class WatchlistService {
     const list = this.getMoviesIDlist();
     if (list.length) {
       this.rmFromList(movieID, list);
-      // this.updateMylist();
       this.mylist = this.mylist.filter(mov => mov.id !== movieID);
       this.myWatchListSub.next(this.mylist);
       return of(true);
@@ -61,13 +71,18 @@ export class WatchlistService {
       );
   }
 
-  private updateMylist(): void {
+  updateMylist(): Observable<Movie[]> {
     this.getWatchListMovies().subscribe(
       mylist => {
         this.mylist = mylist;
         this.myWatchListSub.next(mylist);
+      },
+      error => {
+        console.error(error);
+        this.errorMessage.next(error);
       }
     );
+    return this.getMyWatchList();
   }
 
   getMyWatchList(): Observable<Movie[]> {

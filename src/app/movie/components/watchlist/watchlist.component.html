@@ -13,7 +13,7 @@
         ></app-poster>
       </ng-container>
 
-      <div class="notfound" *ngIf="!myMovies.length || !myMovies">You have not added any movie yet !</div>
+      <div class="notfound" *ngIf="(!myMovies.length || !myMovies) && !load">You have not added any movie yet !</div>
     </ng-container>
   </div>
 
