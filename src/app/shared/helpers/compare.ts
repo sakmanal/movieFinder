@@ -1,4 +1,4 @@
-export function compareValues(key: string, order = 'descending', mapObj?: { [key: string]: number }) {
+export function compareValues(key: string, order: 'ascending' | 'descending' = 'descending', mapObj?: { [key: string]: number }) {
   return (a: object, b: object) => {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
       // property doesn't exist on either object

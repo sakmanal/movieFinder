@@ -12,6 +12,7 @@ import { SelectInputComponent } from './components/select-input/select-input.com
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 import { MyListButtonComponent } from './components/my-list-button/my-list-button.component';
 import { PosterComponent } from './components/poster/poster.component';
+import { PercentageCircleRatingComponent } from './components/percentage-circle-rating/percentage-circle-rating.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PosterComponent } from './components/poster/poster.component';
     SelectInputComponent,
     ScrollTopComponent,
     MyListButtonComponent,
-    PosterComponent
+    PosterComponent,
+    PercentageCircleRatingComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { PosterComponent } from './components/poster/poster.component';
     SelectInputComponent,
     ScrollTopComponent,
     MyListButtonComponent,
-    PosterComponent
+    PosterComponent,
+    PercentageCircleRatingComponent
   ]
 })
 export class SharedModule { }

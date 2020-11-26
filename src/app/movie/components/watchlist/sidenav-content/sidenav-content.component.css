@@ -35,4 +35,19 @@
   font-weight: bold;
 }
 
+.category-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.desc {
+  margin-top: 10px;
+}
+
+.list-btn {
+  margin-top: 5px;
+}
+
 

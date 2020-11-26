@@ -1,0 +1,21 @@
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-spinner {
+  border-radius: 50%;
+  border: solid 2px rgb(255, 255, 255);
+}
+
+.value {
+  position:relative;
+  top: -60px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.rating {
+  margin-top: -20px;
+}

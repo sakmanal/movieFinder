@@ -3,9 +3,13 @@
    <div class="main-content">
      <div class="info">
         <div class="title">{{movie.title | uppercase}}</div>
-        <div>{{movie.category}}</div>
-        <div>{{movie.description}}</div>
-        <app-watchlist-button [movieId]="movie.id"></app-watchlist-button>
+        <div class="category-rating">
+          <div>{{movie.category}} | {{movie.releaseDate | date:'y'}}</div>
+          <app-percentage-circle-rating [value]="movie.approvalRating * 100"></app-percentage-circle-rating>
+        </div>
+        <div class="desc">{{movie.description}}</div>
+        <app-watchlist-button [movieId]="movie.id" class="list-btn"></app-watchlist-button>
+
      </div>
   </div>
 </div>
