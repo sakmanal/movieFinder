@@ -1,4 +1,4 @@
-import { Movie } from '@core/models/movie';
+import { Movie } from './movie';
 
 export interface ResolvedMovie {
   movie: Movie;

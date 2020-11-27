@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { Movie } from '../../../../core/models/movie';
+import { Movie } from '@core/models/movie';
 
 @Component({
   selector: 'app-movie-edit-info',
@@ -17,13 +17,13 @@ export class MovieEditInfoComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    //use resolver to get the movie
+    // use resolver to get the movie
     // Watch for changes to the resolve data
     this.route.parent.data.subscribe(data => {
       const dataName = 'movie';
-      this.movie = data[dataName];
+      this.movie = data[dataName].movie;
 
-      //reset form
+      // reset form
       if (this.movieForm) {
         this.movieForm.reset();
       }

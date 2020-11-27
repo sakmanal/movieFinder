@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPanelComponent implements OnInit {
 
+  isExpanded = false;
+
   constructor() { }
 
   ngOnInit() {

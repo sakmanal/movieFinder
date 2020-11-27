@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Movie } from '../../../../core/models/movie';
-import { MovieService } from '../../../../core/services/movie.service';
+import { Movie } from '@core/models/movie';
+import { MovieService } from '@core/services/movie.service';
 
 @Component({
   selector: 'app-movie-edit',
@@ -19,10 +19,10 @@ export class MovieEditComponent implements OnInit {
   private dataIsValid: { [key: string]: boolean } = {};
 
   get isDirty(): boolean {
-    //movie objects comprasion
-    //(Works when we have simple JSON-style objects without methods and DOM nodes inside)
-    //objects MUST have the same order on their properties
-    return JSON.stringify(this.originalMovie) !== JSON.stringify(this.currentMovie)
+    // movie objects comprasion
+    // (Works when we have simple JSON-style objects without methods and DOM nodes inside)
+    // objects MUST have the same order on their properties
+    return JSON.stringify(this.originalMovie) !== JSON.stringify(this.currentMovie);
   }
 
   get movie(): Movie {
@@ -30,15 +30,14 @@ export class MovieEditComponent implements OnInit {
   }
   set movie(movie: Movie) {
 
-    //currentMovie is the same as movie (same reference)
-    //every time movie changes(e.g. from movie-edit-component) -> currentMovie changes too !!
+    // currentMovie is the same as movie (same reference)
+    // every time movie changes(e.g. from movie-edit-component) -> currentMovie changes too !!
     this.currentMovie = movie;
 
-    //above behavior can be logged here
-    //setInterval( () => {console.log(this.currentMovie.director, this.originalMovie.director)}, 5000 );
+    // above behavior can be logged here
+    // setInterval( () => {console.log(this.currentMovie.director, this.originalMovie.director)}, 5000 );
 
     // Clone the object to retain a copy
-    // this.originalMovie = movie --- we pass it with reference, we don't want this
     this.originalMovie = Object.assign({}, movie);
   }
 
@@ -47,24 +46,15 @@ export class MovieEditComponent implements OnInit {
               private movieService: MovieService) { }
 
   ngOnInit() {
-    //use resolver to get the movie
-    // Watch for changes to the resolve data
-    //if we press add-new-movie button (same component as this)
-    //below code executes again because we have subscribed to the resole data
     this.route.data.subscribe(data => {
       const dataName = 'movie';
-      const movie = data[dataName];
-      this.onMovieRetrieved(movie);
+      const d = data[dataName];
+      this.onMovieRetrieved(d.movie);
     });
-
-    //not working the same--executes only once
-    //const m = this.route.snapshot.data["movie"];
-    //this.onMovieRetrieved(m);
   }
 
   onMovieRetrieved(movie: Movie): void {
     this.movie = movie;
-
     // Adjust the title
     if (this.movie.id === 0) {
       this.pageTitle = 'Add Movie';
@@ -96,7 +86,7 @@ export class MovieEditComponent implements OnInit {
     }
   }
 
-  onSaveComplete(message?: string): void {  // ? means message parameter is optional
+  onSaveComplete(message?: string): void {
     console.log(message);
     this.reset();
     // Navigate back to the movie list
@@ -116,7 +106,7 @@ export class MovieEditComponent implements OnInit {
     if (path) {
       return this.dataIsValid[path];
     }
-    //returns true if both tabs are valid (if both tabs are marked as true in validate())
+    // returns true if both tabs are valid (if both tabs are marked as true in validate())
     return (this.dataIsValid && Object.keys(this.dataIsValid).every(d => this.dataIsValid[d] === true));
   }
 

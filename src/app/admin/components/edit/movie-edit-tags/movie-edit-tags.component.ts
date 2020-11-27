@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Movie } from '../../../../core/models/movie';
+import { Movie } from '@core/models/movie';
 
 @Component({
   selector: 'app-movie-edit-tags',
@@ -18,7 +18,7 @@ export class MovieEditTagsComponent implements OnInit {
   ngOnInit() {
     this.route.parent.data.subscribe(data => {
       const dataName = 'movie';
-      this.movie = data[dataName];
+      this.movie = data[dataName].movie;
     });
   }
 

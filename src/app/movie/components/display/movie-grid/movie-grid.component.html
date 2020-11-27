@@ -2,7 +2,7 @@
   <ng-container *ngFor="let movie of movies; let i = index">
     <app-poster
       [posterImgUrl]="movie.imageurl"
-      [routerLink]="['/movies', movie.id]"
+      [routerLink]="['/movies', movie.id, { backurl: 'movies' }]"
       class="poster"
     ></app-poster>
   </ng-container>

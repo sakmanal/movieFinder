@@ -21,7 +21,7 @@
                 <span *ngIf="categoryVar.errors?.minlength">
                     The category must be at least 3 characters in length.
                 </span>
-            </span>                            
+            </span>
         </p>
 
         <p class="flex-container">
@@ -34,7 +34,7 @@
                          [(ngModel)]="newTags"
                          name="tags"
                          #tagVar="ngModel"
-                         [ngClass]="{'is-invalid': (tagVar.touched || tagVar.dirty || movie.id !== 0) && !tagVar.valid }" /> 
+                         [ngClass]="{'is-invalid': (tagVar.touched || tagVar.dirty || movie.id !== 0) && !tagVar.valid }" />
                     <button
                         class="btn"
                         title="Add the entered search tags"
@@ -42,24 +42,24 @@
                        Add
                     </button>
                 </span>
-                     
+
             <span class="invalid-feedback">
                 <span *ngIf="tagVar.errors?.minlength">
                     The search tag must be at least 3 characters in length.
                 </span>
-            </span>     
+            </span>
         </p>
 
         <p>
             <mat-chip-list>
-                    <mat-chip *ngFor="let tag of movie.tags; let i = index" 
+                    <mat-chip *ngFor="let tag of movie.tags; let i = index"
                               (removed)="removeTag(i)"
                               [color]="i % 2 == 0 ? 'warn' : 'accent'"
                               selected>
                      {{tag}}
                      <mat-icon matChipRemove>cancel</mat-icon>
                     </mat-chip>
-            </mat-chip-list>  
+            </mat-chip-list>
         </p>
 
 

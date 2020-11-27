@@ -1,0 +1,27 @@
+.nav-container {
+  height: calc(100% - 64px);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  color: whitesmoke;
+}
+
+.sidenav {
+  background-color: #212121;
+}
+
+p, mat-icon {
+  color: aliceblue;
+}
+
+.mat-list-item.active {
+  background: #009688;
+  color:white;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-container {
+    height: calc(100% - 56px);
+  }
+}
+

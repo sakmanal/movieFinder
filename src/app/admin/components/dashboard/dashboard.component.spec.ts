@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovieEditReactiveComponent } from './movie-edit-reactive.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('MovieEditReactiveComponent', () => {
-  let component: MovieEditReactiveComponent;
-  let fixture: ComponentFixture<MovieEditReactiveComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieEditReactiveComponent ]
+      declarations: [ DashboardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MovieEditReactiveComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

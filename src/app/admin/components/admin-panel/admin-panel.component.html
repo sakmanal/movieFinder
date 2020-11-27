@@ -1,1 +1,23 @@
-<p>admin-panel works!</p>
+<mat-sidenav-container class="nav-container" autosize>
+  <mat-sidenav #sidenav class="sidenav" mode="side" opened="true">
+    <mat-nav-list>
+      <mat-list-item>
+        <button mat-icon-button (click)="isExpanded = !isExpanded">
+          <mat-icon *ngIf="isExpanded">chevron_left</mat-icon>
+          <mat-icon *ngIf="!isExpanded">chevron_right</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item routerLink="/admin/dashboard" routerLinkActive="active">
+       <mat-icon mat-list-icon>home</mat-icon>
+         <p matLine *ngIf="isExpanded">Home</p>
+      </mat-list-item>
+      <mat-list-item routerLink="/admin/movies" routerLinkActive="active">
+        <mat-icon mat-list-icon>movie</mat-icon>
+          <p matLine *ngIf="isExpanded">Movies</p>
+       </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

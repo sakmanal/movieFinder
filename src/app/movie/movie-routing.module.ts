@@ -1,14 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MovieResolver } from './services/movie.resolver';
-import { MovieEditGuard } from './components/edit/movie-edit.guard';
+import { MovieResolver } from '@core/services/movie.resolver';
 import { MovieSelectComponent } from './components/display/movie-select.component';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
-import { MovieEditComponent } from './components/edit/movie-edit/movie-edit.component';
-import { MovieEditInfoComponent } from './components/edit/movie-edit-info/movie-edit-info.component';
-import { MovieEditTagsComponent } from './components/edit/movie-edit-tags/movie-edit-tags.component';
-import { MovieEditReactiveComponent } from './components/edit/movie-edit-reactive/movie-edit-reactive.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 
 const movieRoutes: Routes = [
@@ -19,22 +14,7 @@ const movieRoutes: Routes = [
     path: ':id',
     resolve: { movie: MovieResolver },
     component: MovieDetailComponent
-  },
-  {
-    path: ':id/edit',
-    resolve: { movie: MovieResolver },
-    canDeactivate: [MovieEditGuard],
-    component: MovieEditComponent,
-    children: [
-      { path: '', redirectTo: 'info', pathMatch: 'full' },
-      { path: 'info', component: MovieEditInfoComponent },
-      { path: 'tags', component: MovieEditTagsComponent }
-    ]
-  },
-  {
-    path: ':id/editReactive',
-    component: MovieEditReactiveComponent
-  },
+  }
 ];
 
 @NgModule({

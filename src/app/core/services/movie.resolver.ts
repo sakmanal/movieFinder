@@ -4,7 +4,7 @@ import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { ResolvedMovie } from '../models/resolvedMovie';
-import { MovieService } from '@core/services/movie.service';
+import { MovieService } from './movie.service';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class MovieResolver implements Resolve<ResolvedMovie> {
   resolve(route: ActivatedRouteSnapshot ): Observable<ResolvedMovie> {
     const id = route.paramMap.get('id');
     const param = route.paramMap.get('backurl');
-    const backUrl = (param) ? param : 'movies';
+    const backUrl = (param) ? param : '';
 
     if (+id === 0) {
       this.router.navigateByUrl(backUrl);
