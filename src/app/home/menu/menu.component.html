@@ -25,6 +25,7 @@
             My List
         </button>
         <button mat-raised-button
+            *ngIf="isAdmin"
             color="warn"
             routerLinkActive='active'
             [routerLinkActiveOptions]="{ exact: true }"
@@ -59,6 +60,7 @@
     <mat-menu #menu="matMenu">
         <span *ngIf="mobileQuery.matches ? true : false">
                 <button mat-menu-item
+                        *ngIf="isAdmin"
                         routerLinkActive='active'
                         [routerLinkActiveOptions]="{ exact: true }"
                         routerLink='/admin'>

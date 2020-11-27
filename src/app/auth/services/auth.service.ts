@@ -10,7 +10,6 @@ import { Token } from '../models/token';
 import { LoginFormData, RegisterFormData } from '../models/authData';
 import { MockHttpService } from '../fake-server/mock-http.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
