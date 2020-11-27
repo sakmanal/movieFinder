@@ -22,7 +22,7 @@ export class MenuComponent implements OnDestroy {
       private authService: AuthService,
       private router: Router
     ) {
-    this.mobileQuery = media.matchMedia('(max-width: 750px)');
+    this.mobileQuery = media.matchMedia('(max-width: 880px)');
     this.mobileQueryListener = () => { changeDetectionRef.detectChanges(); };
     this.mobileQuery.addEventListener('change', this.mobileQueryListener);
   }

@@ -6,6 +6,7 @@ import { LoginResponse, RegisterResponse, AvailableUserResponse, AvailableEmailR
 import { Token } from '../models/token';
 import { LoginFormData, RegisterFormData } from '../models/authData';
 import { User } from '../models/user';
+import { Role } from '../models/role';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,7 @@ export class MockHttpService {
         user: {
           id: 10034,
           userName: data.username,
-          isAdmin: (data.username === 'admin')
+          role: (data.username === 'admin') ? Role.Admin : Role.User
         }
       }).pipe(delay(1500));
     } else {
@@ -69,7 +70,7 @@ export class MockHttpService {
       user: {
         id: 10067,
         userName: data.username,
-        isAdmin: false,
+        role: Role.User,
         email: data.email
       }
     }).pipe(delay(1500));
@@ -92,7 +93,7 @@ export class MockHttpService {
       return of({
         id: 10034,
         userName,
-        isAdmin: false
+        role: (userName === 'admin') ? Role.Admin : Role.User
       });
     } catch (e) {
       return of(null);

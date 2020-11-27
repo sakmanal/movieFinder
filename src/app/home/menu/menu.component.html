@@ -24,6 +24,14 @@
             <i class="fas fa-person-booth"></i>
             My List
         </button>
+        <button mat-raised-button
+            color="warn"
+            routerLinkActive='active'
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink='/admin'>
+            <i class="fas fa-user-shield"></i>
+            Admin Panel
+        </button>
         <!-- <button mat-button
             routerLinkActive='active'
             [routerLinkActiveOptions]="{ exact: true }"
@@ -53,6 +61,13 @@
                 <button mat-menu-item
                         routerLinkActive='active'
                         [routerLinkActiveOptions]="{ exact: true }"
+                        routerLink='/admin'>
+                        <i class="fas fa-user-shield"></i>
+                        <span class="menu-item">Admin Panel</span>
+                </button>
+                <button mat-menu-item
+                        routerLinkActive='active'
+                        [routerLinkActiveOptions]="{ exact: true }"
                         routerLink='/movies'>
                         <i class="fas fa-film"></i>
                         <span class="menu-item">Movie List</span>
@@ -64,13 +79,13 @@
                         <i class="fas fa-search"></i>
                         <span class="menu-item">Advanced Search</span>
                 </button>
-                <button mat-menu-item
+                <!-- <button mat-menu-item
                         routerLinkActive='active'
                         [routerLinkActiveOptions]="{ exact: true }"
                         [routerLink]="['/movies', 0, 'edit']">
                         <i class="fas fa-plus"></i>
                         <span class="menu-item">Add Movie</span>
-                </button>
+                </button> -->
         </span>
         <a target="_blank" class="git-btn" href="https://github.com/sakmanal">
             <button mat-menu-item>

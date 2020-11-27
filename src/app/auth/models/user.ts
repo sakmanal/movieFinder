@@ -1,6 +1,7 @@
+import { Role } from './role';
 export interface User {
   id: number;
   userName: string;
-  isAdmin: boolean;
+  role: Role;
   email?: string;
 }
