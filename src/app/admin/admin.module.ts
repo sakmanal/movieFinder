@@ -10,6 +10,7 @@ import { MovieEditInfoComponent } from './components/edit/movie-edit-info/movie-
 import { MovieEditTagsComponent } from './components/edit/movie-edit-tags/movie-edit-tags.component';
 import { SharedModule } from '@shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { NgxChartsModule } from 'ngx-charts-8';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     SharedModule,
     FormsModule,
+    NgxChartsModule
   ],
 })
 export class AdminModule {}

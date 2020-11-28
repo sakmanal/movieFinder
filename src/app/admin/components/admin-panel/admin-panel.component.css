@@ -19,6 +19,10 @@ p, mat-icon {
   color:white;
 }
 
+.main{
+  padding: 20px;
+}
+
 @media screen and (max-width: 600px) {
   .nav-container {
     height: calc(100% - 56px);

@@ -56,7 +56,6 @@ export class MovieService {
       director: '',
       imageurl: '',
       mpaa: '',
-      price: null,
       releaseDate: '',
       starRating: null,
       title: '',

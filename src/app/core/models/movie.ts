@@ -5,7 +5,6 @@ export interface Movie {
     director: string;
     imageurl: string;
     mpaa: string;
-    price?: number | null;
     releaseDate: string;
     starRating: number | null;
     title: string;

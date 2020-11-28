@@ -7,7 +7,8 @@
       "@env/*": ["environments/*"],
       "@auth/*": ["app/auth/*"],
       "@shared/*": ["app/shared/*"],
-      "@core/*": ["app/core/*"]
+      "@core/*": ["app/core/*"],
+      "@mock/*": ["app/mock/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

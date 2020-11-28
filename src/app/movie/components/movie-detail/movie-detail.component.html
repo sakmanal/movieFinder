@@ -1,4 +1,4 @@
-﻿<div class="container" *ngIf="movie">
+﻿<div class="container" *ngIf="movie; else notfound">
   <div class="img-container">
     <img [src]="movie.imageurl" />
     <button class="btn"><i class="fas fa-play-circle fa-3x" [routerLink]="['/play', movie.ytId]"></i></button>
@@ -68,3 +68,7 @@
     </mat-card>
   </div>
 </div>
+
+<ng-template #notfound>
+  No movie found!
+</ng-template>

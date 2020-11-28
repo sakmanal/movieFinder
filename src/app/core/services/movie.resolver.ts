@@ -23,10 +23,10 @@ export class MovieResolver implements Resolve<ResolvedMovie> {
     const param = route.paramMap.get('backurl');
     const backUrl = (param) ? param : '';
 
-    if (+id === 0) {
-      this.router.navigateByUrl(backUrl);
-      return of(null);
-    }
+    // if (+id === 0) {
+    //   this.router.navigateByUrl(backUrl);
+    //   return of(null);
+    // }
 
     if (isNaN(+id)) {
       this.toastrService.error(`Movie id was not a number: ${id}`);

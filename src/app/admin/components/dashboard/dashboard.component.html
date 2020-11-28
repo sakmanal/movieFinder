@@ -1,1 +1,77 @@
-<p>dashboard works!</p>
+<div class="actions">
+  <button mat-raised-button
+          [routerLink]="['/admin/edit', 0]"
+          color="accent">
+          <i class="fas fa-plus"></i>
+        Add New Movie
+  </button>
+  <button mat-raised-button
+          [routerLink]="['/admin/movies']"
+          color="warn">
+          <i class="fas fa-pencil-alt"></i>
+        Edit Movies
+  </button>
+</div>
+
+<div class="cards">
+  <mat-card>
+    <div class="top"><i class="fas fa-users" style="color: greenyellow;"></i> 1,000</div>
+    <div class="middle">New Users</div>
+    <div class="bottom">
+      <span class="c">+ 10% <i class="fas fa-arrow-up"></i></span>
+      since last week
+    </div>
+  </mat-card>
+  <mat-card>
+    <div class="top"><i class="fas fa-euro-sign" style="color:orange"></i> 1M</div>
+    <div class="middle">Total Loss</div>
+    <div class="bottom">
+      <span class="r">- 5% <i class="fas fa-arrow-down"></i></span>
+      since last week
+    </div>
+  </mat-card>
+  <mat-card>
+    <div class="top"><i class="fas fa-user-circle" style="color: orchid;"></i> 5,000</div>
+    <div class="middle">Subscriptions Upgrade</div>
+    <div class="bottom">
+      <span class="c">+ 20% <i class="fas fa-arrow-up"></i></span>
+      since last week
+    </div>
+  </mat-card>
+  <mat-card>
+    <div class="top"><i class="fas fa-film" style="color: rgb(71, 185, 238);"></i> 10</div>
+    <div class="middle">New Movies</div>
+    <div class="bottom">
+      <span class="r">- 40% <i class="fas fa-arrow-down"></i></span>
+      since last month
+    </div>
+  </mat-card>
+</div>
+
+
+<div class="card-header">Most Viewed Movies of the week</div>
+<div class="chart-card" *ngIf="TopMoviesViews.length">
+  <ngx-charts-bar-vertical
+    [results]="TopMoviesViews"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [legendTitle]="legendTitle"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-bar-vertical>
+</div>
+
+
+<div class="card-header" style="margin-top: 20px">Most subscribed Users per Country</div>
+<div class="chart-card" *ngIf="TopMoviesViews.length">
+  <ngx-charts-pie-grid
+    [results]="CountryViews">
+  </ngx-charts-pie-grid>
+</div>
+
+
+

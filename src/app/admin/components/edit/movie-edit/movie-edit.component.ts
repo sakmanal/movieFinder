@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Movie } from '@core/models/movie';
 import { MovieService } from '@core/services/movie.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-movie-edit',
@@ -41,9 +42,12 @@ export class MovieEditComponent implements OnInit {
     this.originalMovie = Object.assign({}, movie);
   }
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private movieService: MovieService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private toastrService: ToastrService,
+    private movieService: MovieService
+              ) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -87,10 +91,10 @@ export class MovieEditComponent implements OnInit {
   }
 
   onSaveComplete(message?: string): void {
-    console.log(message);
+    this.toastrService.success(message);
     this.reset();
     // Navigate back to the movie list
-    this.router.navigate(['/movies']);
+    this.router.navigate(['/admin/movies']);
   }
 
   // Reset the data

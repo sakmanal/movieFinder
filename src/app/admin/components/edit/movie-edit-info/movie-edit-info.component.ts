@@ -17,8 +17,6 @@ export class MovieEditInfoComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // use resolver to get the movie
-    // Watch for changes to the resolve data
     this.route.parent.data.subscribe(data => {
       const dataName = 'movie';
       this.movie = data[dataName].movie;

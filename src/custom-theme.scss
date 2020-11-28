@@ -5,7 +5,7 @@
 $my-app-primary: mat-palette($mat-teal);
 $my-app-accent:  mat-palette($mat-red, 800);
 $my-app-warn:    mat-palette($mat-deep-purple, 500);
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+$my-app-theme: mat-dark-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 @include angular-material-theme($my-app-theme);
 
