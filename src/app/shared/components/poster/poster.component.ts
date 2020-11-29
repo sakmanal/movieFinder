@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { noImg } from '@shared/helpers/noImgFound';
 
 @Component({
   selector: 'app-poster',
@@ -7,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PosterComponent implements OnInit {
 
-  @Input() posterImgUrl = 'https://image.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg';
+  @Input() posterImgUrl;
+  imgsrc = noImg;
 
   constructor() { }
 

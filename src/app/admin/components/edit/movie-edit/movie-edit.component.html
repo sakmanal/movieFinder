@@ -17,7 +17,7 @@
     </a>
     <a [routerLink]="['tags']"
        routerLinkActive="active">
-      Search Tags
+      More Info
       <span [ngClass]="{'fa fa-exclamation': !isValid('tags')}"></span>
     </a>
   </div>
@@ -36,6 +36,7 @@
         Save
       </button>
       <button mat-raised-button
+              *ngIf="movie.id !== 0"
               color="accent"
               style="margin-right:5px"
               (click)="deleteMovie()">

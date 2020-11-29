@@ -62,18 +62,40 @@
               Rate the movie between 1 (lowest) and 5 (highest).
               </span>
           </span>
-
       </p>
+
+      <p>
+        <label>Audience Approval (0-1):</label>
+        <input id="approvalRating"
+               type="string"
+               placeholder="approvalRating"
+               mhRange="0, 1"
+               [(ngModel)]="movie.approvalRating"
+               name="approvalRating"
+               #approvalRatingVar="ngModel"
+               [ngClass]="{'is-invalid': (approvalRatingVar.touched || approvalRatingVar.dirty) && !approvalRatingVar.valid}" />
+        <span class="invalid-feedback">
+            <span *ngIf="approvalRatingVar.errors?.range">
+              Audience Approval must be between 0 (lowest) and 1 (highest).
+            </span>
+        </span>
+    </p>
 
       <p>
           <label>Description:</label>
           <textarea id="inputMovieDescription"
-                    placeholder="Description"
+                    placeholder="Description (required)"
+                    required
                     rows=3
                     [(ngModel)]="movie.description"
+                    #descriptionVar="ngModel"
                     name="description">
           </textarea>
-
+          <span class="invalid-feedback">
+            <span *ngIf="descriptionVar.errors?.required">
+                    Please enter movie description.
+            </span>
+        </span>
       </p>
 
   </fieldset>

@@ -28,7 +28,7 @@ mat-card-title {
 
 a, a:visited {
   text-decoration: none;
-  color: #343A40;
+  color: #f1f5f8;
 }
 
 mat-checkbox {
@@ -41,7 +41,7 @@ mat-checkbox {
 }
 
 .policy {
-  color: #3F51B5;
+  color: #7586e4;
   font-weight: bold;
 }
 
@@ -51,13 +51,13 @@ mat-checkbox {
 }
 
 .pending {
-  color: #3F51B5;
+  color: #7586e4;
   position: absolute;
   margin-top: -15px;
 }
 
 .valid {
-  color: #096b05;
+  color: #35cf30;
   position: absolute;
   margin-left: 5px;
   margin-top: -15px;

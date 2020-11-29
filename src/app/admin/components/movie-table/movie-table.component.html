@@ -1,4 +1,10 @@
-Table retrieving Movies through HTTP
+<button mat-raised-button
+        [routerLink]="['/admin/movies/edit', 0]"
+        color="accent">
+  <i class="fas fa-plus"></i>
+  Add New Movie
+</button>
+<div style="text-align: center;">Table retrieving Movies through HTTP</div>
 <div class="container mat-elevation-z8">
   <div class="loading-shade"
        *ngIf="isLoadingResults || isRateLimitReached">
@@ -11,17 +17,22 @@ Table retrieving Movies through HTTP
   <div class="table-container">
 
     <table mat-table [dataSource]="data" class="table"
-           matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>id</th>
-        <td mat-cell *matCellDef="let mov">{{mov.id}}</td>
+           matSort matSortActive="releaseDate" matSortDisableClear matSortDirection="desc">
+      <!-- Index Column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let mov; let i = index">{{(i+1) + (paginator.pageIndex * paginator.pageSize)}}</td>
       </ng-container>
 
       <!-- Title Column -->
       <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let mov">{{mov.title}}</td>
+        <td mat-cell *matCellDef="let mov">
+          <div style="display: flex; align-items:center">
+            <img [src]="mov.imageurl || imgsrc" width="50px">
+            <span style="margin-left: 5px">{{mov.title}}</span>
+          </div>
+        </td>
       </ng-container>
 
       <!-- Category Column -->
@@ -38,11 +49,28 @@ Table retrieving Movies through HTTP
         <td mat-cell *matCellDef="let mov">{{mov.releaseDate | date}}</td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+          Actions
+        </th>
+        <td mat-cell *matCellDef="let mov">
+          <button mat-flat-button color="accent" [routerLink]="['/admin/movies/edit', mov.id]" style="margin: 2px;">
+            <i class="fas fa-edit"></i>
+             Edit
+          </button>
+          <button mat-flat-button color="warn" [routerLink]="['/movies', mov.id, { backurl: 'admin/movies' }]">
+            <i class="fas fa-info-circle"></i>
+             Details
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
 
-  <mat-paginator [length]="resultsLength" [pageSize]="8"></mat-paginator>
+  <mat-paginator [length]="resultsLength" [pageSizeOptions]="[8, 16, 24, resultsLength]"></mat-paginator>
 </div>
 

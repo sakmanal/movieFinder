@@ -1,5 +1,7 @@
 <div class="select-container">
-  <label>{{label}}</label><hr>
+  <div *ngIf="label">
+    <label>{{label}}</label>
+  </div>
   <div class="select">
     <select [formControl]="selectControl">
       <option *ngFor="let opt of options" [value]='opt'>{{opt}}</option>

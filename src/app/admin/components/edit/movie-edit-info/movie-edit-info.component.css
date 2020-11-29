@@ -7,9 +7,9 @@ input {
     height: 40px;
     padding: 0 5px;
     font-size: 17px;
-    border: 1px solid #3F51B5;
+    border: 1px solid #5452FF;
     color: white;
-    background: #424242;
+    background: #5C6664;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;
@@ -21,9 +21,9 @@ textarea {
     width: 100%;
     padding: 3px 5px;
     font-size: 13px;
-    border: 1px solid #3F51B5;
+    border: 1px solid #5452FF;
     color: white;
-    background: #424242;
+    background: #5C6664;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;
@@ -41,6 +41,18 @@ input.is-invalid:focus {
 .invalid-feedback{
      color: rgb(233, 57, 57);
      font-size: 12px;
+}
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #9da3a2;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #9da3a2;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #9da3a2;
 }
 

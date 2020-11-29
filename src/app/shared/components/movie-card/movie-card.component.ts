@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '@core/models/movie';
+import { noImg } from '@shared/helpers/noImgFound';
 
 @Component({
   selector: 'app-movie-card',
@@ -9,6 +10,7 @@ import { Movie } from '@core/models/movie';
 export class MovieCardComponent implements OnInit {
 
   @Input() movie: Movie;
+  imgsrc = noImg;
 
   constructor() { }
 

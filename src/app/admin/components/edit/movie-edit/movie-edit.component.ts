@@ -130,7 +130,11 @@ export class MovieEditComponent implements OnInit {
       this.movie.director.length <= 50 &&
       (!this.movie.starRating ||
         this.movie.starRating >= 1 &&
-        this.movie.starRating <= 5)
+        this.movie.starRating <= 5) &&
+      (!this.movie.approvalRating ||
+        this.movie.approvalRating >= 0 &&
+        this.movie.approvalRating <= 1) &&
+      this.movie.description
     ) {
       this.dataIsValid[infoTab] = true;
     } else {
@@ -139,7 +143,8 @@ export class MovieEditComponent implements OnInit {
 
     // 'tags' tab
     if (this.movie.category &&
-      this.movie.category.length >= 3) {
+      this.movie.category.length >= 3 &&
+      this.movie.mpaa) {
       this.dataIsValid[tagsTab] = true;
     } else {
       this.dataIsValid[tagsTab] = false;

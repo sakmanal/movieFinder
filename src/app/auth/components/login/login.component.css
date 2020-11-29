@@ -44,8 +44,8 @@ mat-card-content
 
 fieldset {
   margin-top: 20px;
-  background-color: #5249fc2c;
-  border: dashed rgb(56, 55, 55) 2px;
+  background-color: #e0e0eb2c;
+  border: dashed rgb(148, 147, 147) 2px;
 }
 
 legend {
@@ -60,7 +60,7 @@ legend {
 
 a, a:visited {
   text-decoration: none;
-  color: #343A40;
+  color: #f9fbfd;
 }
 
 

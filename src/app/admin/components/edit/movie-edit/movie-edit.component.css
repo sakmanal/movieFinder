@@ -3,7 +3,7 @@
 }
 
 .wizard a {
-  background: #3F51B5;
+  background: #5452FF;
   display: inline-block;
   margin-right: 5px;
   min-width: 150px;
@@ -38,7 +38,7 @@
   height: 0;
   border-top: 20px inset transparent;
   border-bottom: 20px inset transparent;
-  border-left: 21px solid #3F51B5;
+  border-left: 21px solid #5452FF;
   position: absolute;
   content: "";
   top: 0;

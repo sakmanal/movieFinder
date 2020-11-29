@@ -1,6 +1,6 @@
 export interface Movie {
     id: number | null;
-    approvalRating?: number | null;
+    approvalRating: number | null;
     description: string;
     director: string;
     imageurl: string;

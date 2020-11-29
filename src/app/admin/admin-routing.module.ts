@@ -18,7 +18,7 @@ const adminRoutes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'movies', component: MovieTableComponent },
       {
-        path: 'edit/:id',
+        path: 'movies/edit/:id',
         resolve: { movie: MovieResolver },
         canDeactivate: [MovieEditGuard],
         component: MovieEditComponent,

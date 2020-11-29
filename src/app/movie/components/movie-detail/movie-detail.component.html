@@ -1,6 +1,6 @@
 ﻿<div class="container" *ngIf="movie; else notfound">
   <div class="img-container">
-    <img [src]="movie.imageurl" />
+    <img [src]="movie.imageurl || imgsrc" />
     <button class="btn"><i class="fas fa-play-circle fa-3x" [routerLink]="['/play', movie.ytId]"></i></button>
   </div>
   <div class="card">

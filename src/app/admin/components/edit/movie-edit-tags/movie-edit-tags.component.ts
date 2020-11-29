@@ -24,9 +24,11 @@ export class MovieEditTagsComponent implements OnInit {
 
   // Add the defined tags
   addTags(): void {
-    const tagArray = this.newTags.split(',');
-    this.movie.tags = this.movie.tags ? this.movie.tags.concat(tagArray) : tagArray;
-    this.newTags = '';
+    if (this.newTags) {
+      const tagArray = this.newTags.split(',');
+      this.movie.tags = this.movie.tags ? this.movie.tags.concat(tagArray) : tagArray;
+      this.newTags = '';
+    }
   }
 
   // Remove the tag from the array of tags.

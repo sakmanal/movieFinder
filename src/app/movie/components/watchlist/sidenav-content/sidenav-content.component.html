@@ -1,7 +1,7 @@
 <div *ngIf="movie">
   <div
     class="sidenav-content"
-    [ngStyle]="{ 'background-image': 'url(' + movie.imageurl + ')' }"
+    [ngStyle]="{ 'background-image': 'url(' + (movie.imageurl || imgsrc) + ')' }"
   ></div>
   <div class="main-content">
     <div class="info">

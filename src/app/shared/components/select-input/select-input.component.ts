@@ -11,7 +11,7 @@ export class SelectInputComponent implements OnInit {
 
   selectControl = new FormControl();
   @Input() options: string[] = [];
-  @Input() label = 'select option';
+  @Input() label: string;
   @Input() set option(value: string) {
    this.selectControl.setValue(value);
   }
