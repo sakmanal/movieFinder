@@ -1,6 +1,7 @@
 /* Structure */
 .container {
   position: relative;
+  height: calc(100vh - 230px);
 }
 
 .table-container {
