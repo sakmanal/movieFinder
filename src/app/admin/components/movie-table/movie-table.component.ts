@@ -34,27 +34,20 @@ export class MovieTableComponent implements OnInit, AfterViewInit {
   ngOnInit() { }
 
   ngAfterViewInit() {
-     this.tablePageChange();
-    //  this.searchChange();
+    this.tablePageChange();
+    this.searchChange();
   }
 
   private tablePageChange(): void {
     // If the user changes the sort order, reset back to the first page.
     // this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
 
-    // we can use merge with sort and pagination in case we want
-    // data to be sorted by the server
-    // merge(this.sort.sortChange, this.paginator.page)
-
-    // Event emitted when the paginator changes the page size or page index.
-    // when this happends we fetch page data from the server
-    // this.paginator.page
+    // paginator.page: Event emitted when the paginator changes the page size or page index.
+    // searchField.valueChanges: Event emitted every time the value of the control changes
     merge(this.searchField.valueChanges, this.paginator.page)
       .pipe(
-        startWith({}),
+        startWith({}, ''),
         debounceTime(500),
-        // disable fetching page data from server if there is a search Filter Input
-        // filter(() => !this.searchField.value),
         switchMap(() => {
           this.isLoadingResults = true;
           return this.mockServerMovieService.getMovieDatasetPage(
@@ -79,42 +72,14 @@ export class MovieTableComponent implements OnInit, AfterViewInit {
       });
   }
 
-  // private searchChange(): void {
-  //   this.searchField.valueChanges.pipe(
-  //     startWith(''),
-  //     map(
-  //       (value: string) => {
-  //         // if search input is clear, emit paginator pageEvent to update Table with data from server
-  //         if (!value) {
-  //           this.paginator.page.next();
-  //           return null;
-  //         }
-  //         return value;
-  //       }
-  //     ),
-  //     filter(value => !!value),
-  //     // delay emits
-  //     debounceTime(500),
-  //     tap(() => this.isLoadingResults = true),
-  //     // use switch map to cancel previous subscribed events, before creating new once
-  //     switchMap(
-  //       (value: string) => {
-  //         return this.mockServerMovieService.getSearchedMovie(value);
-  //       }
-  //     ),
-  //     map((data: MovieDataset) => {
-  //       // Flip flag to show that loading has finished.
-  //       this.isLoadingResults = false;
-  //       this.resultsLength = data.total_count_movies;
-
-  //       return data.movies;
-  //     }),
-  //   )
-  //   .subscribe(data => {
-  //       this.updateTableSource(data);
-  //       this.data.paginator = this.paginator;
-  //   });
-  // }
+  private searchChange(): void {
+    this.searchField.valueChanges
+    .subscribe(data => {
+      if (data) {
+        this.paginator.pageIndex = 0;
+      }
+    });
+  }
 
   private updateTableSource(data: Movie[]): void {
     this.data = new MatTableDataSource(data);

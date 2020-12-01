@@ -3,7 +3,6 @@ import { MovieService } from '@core/services/movie.service';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MovieDataset } from '../models/movieDataset';
-import { Movie } from '@core/models/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +16,7 @@ export class MockServerMovieService {
       map( movies => {
          // Not making Pagination & filtering in the server since in-memory-web-api has somewhat restricted api
         if (filterTitle) {
+          filterTitle = filterTitle.toLocaleLowerCase();
           movies = movies.filter(movie => movie.title.toLocaleLowerCase().indexOf(filterTitle) !== -1);
         }
         const movieDataset = [];

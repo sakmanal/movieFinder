@@ -13,10 +13,13 @@
 <div style="text-align: center;">Table retrieving Movies through HTTP</div>
 <div class="container mat-elevation-z8">
   <div class="loading-shade"
-       *ngIf="isLoadingResults || isRateLimitReached">
+       *ngIf="isLoadingResults || isRateLimitReached || !data.data.length">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
     <div class="rate-limit-reached" *ngIf="isRateLimitReached">
       MovieFinder's API rate limit has been reached. It will be reset in one minute.
+    </div>
+    <div class="rate-limit-reached" *ngIf="!data.data.length && !isLoadingResults">
+      No Movie Found
     </div>
   </div>
 
