@@ -1,0 +1,8 @@
+.is-loading ::ng-deep .mat-option-text {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-form-field{
+  width: 100%;
+}

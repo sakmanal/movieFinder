@@ -9,8 +9,9 @@ import { MovieEditComponent } from './components/edit/movie-edit/movie-edit.comp
 import { MovieEditInfoComponent } from './components/edit/movie-edit-info/movie-edit-info.component';
 import { MovieEditTagsComponent } from './components/edit/movie-edit-tags/movie-edit-tags.component';
 import { SharedModule } from '@shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxChartsModule } from 'ngx-charts-8';
+import { AsyncSearchComponent } from './components/async-search/async-search.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NgxChartsModule } from 'ngx-charts-8';
     MovieEditComponent,
     MovieEditInfoComponent,
     MovieEditTagsComponent,
+    AsyncSearchComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { NgxChartsModule } from 'ngx-charts-8';
     MaterialModule,
     SharedModule,
     FormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    ReactiveFormsModule
   ],
 })
 export class AdminModule {}

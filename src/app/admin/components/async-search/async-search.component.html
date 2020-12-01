@@ -1,0 +1,17 @@
+<form [formGroup]='movieForm'>
+  <mat-form-field appearance='outline' color="accent">
+    <input matInput placeholder="Search Movies through HTTP" [matAutocomplete]="auto" formControlName='userInput'>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onselect($event)">
+    <mat-option *ngIf="isLoading" class="is-loading">
+      <mat-spinner diameter="50" color="accent"></mat-spinner>
+    </mat-option>
+    <ng-container *ngIf="!isLoading">
+      <mat-option *ngFor="let movie of filteredMovies" [value]="movie">
+        <span>{{ movie.title }}</span>
+      </mat-option>
+    </ng-container>
+  </mat-autocomplete>
+</form>

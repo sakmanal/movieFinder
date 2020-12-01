@@ -10,7 +10,7 @@
     </div>
     <div class="movie_desc">
       <p class="text">
-              {{movie.description}}
+              {{movie.description | slice:0:140}}...
               <app-star [rating]="movie.starRating"></app-star>
               <span class="approvalRating">{{ movie.approvalRating | percent: '1.0-0'}}</span>
       </p>
@@ -26,5 +26,5 @@
         </button>
     </div>
   </div>
-  <div class="blur_back" [ngStyle]="{'background-image': 'url(' + (movie.imageurl || imgsrc) + ')'}"></div>
+  <div class="blur_back" [ngStyle]="{'background-image': 'url(' + (movie.imageurl || imgsrc) + ')'}" loading="lazy"></div>
 </div>

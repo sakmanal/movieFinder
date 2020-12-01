@@ -1,9 +1,15 @@
-<button mat-raised-button
-        [routerLink]="['/admin/movies/edit', 0]"
-        color="accent">
-  <i class="fas fa-plus"></i>
-  Add New Movie
-</button>
+<div class="head">
+  <button mat-raised-button
+          [routerLink]="['/admin/movies/edit', 0]"
+          color="accent">
+    <i class="fas fa-plus"></i>
+    Add New Movie
+  </button>
+  <mat-form-field appearance='outline' color="accent" class="search">
+    <input matInput placeholder="Search Table through HTTP" [formControl]="searchField" autocomplete="off">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
 <div style="text-align: center;">Table retrieving Movies through HTTP</div>
 <div class="container mat-elevation-z8">
   <div class="loading-shade"

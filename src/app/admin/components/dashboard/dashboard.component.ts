@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TopMoviesViews, CountryViews } from '@mock/view-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,11 +23,15 @@ export class DashboardComponent implements OnInit {
   showYAxisLabel = true;
   yAxisLabel = 'Views';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.TopMoviesViews = TopMoviesViews;
     this.CountryViews = CountryViews;
+  }
+
+  onSearch(movieId: number) {
+    this.router.navigate(['admin/movies/edit', movieId]);
   }
 
 }
