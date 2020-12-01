@@ -24,14 +24,16 @@ export class MovieSelectComponent implements OnInit {
   movieCategories = Categories;
 
   // filters
-  category: string = this.movieParameterService.category;
-  orderBy: string = this.movieParameterService.orderBy;
-  title: string = this.movieParameterService.filterByTitle;
+  category: string;
+  orderBy: string;
+  title: string;
 
-  constructor(private movieService: MovieService,
-              private toastrService: ToastrService,
-              private movieParameterService: MovieParameterService,
-              private route: ActivatedRoute) { }
+  constructor(
+    private movieService: MovieService,
+    private toastrService: ToastrService,
+    private movieParameterService: MovieParameterService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -41,8 +43,15 @@ export class MovieSelectComponent implements OnInit {
       if (Object.keys(params).length) {
         this.movieParameterService.removeFilters();
       }
+      this.getFilters();
       this.getMovies();
     });
+  }
+
+  private getFilters(): void {
+    this.category = this.movieParameterService.category;
+    this.orderBy = this.movieParameterService.orderBy;
+    this.title = this.movieParameterService.filterByTitle;
   }
 
   getMovies(): void {

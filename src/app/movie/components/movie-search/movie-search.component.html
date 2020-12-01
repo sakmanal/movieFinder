@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">{{ pageTitle }}</div>
 
-  <form #searchForm="ngForm" (ngSubmit)="search()">
+  <form novalidate #searchForm="ngForm" (ngSubmit)="search()">
     <div class="row-div">
       <div class="column right">
         <label>Movie Title:</label>
