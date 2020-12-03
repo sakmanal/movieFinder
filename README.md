@@ -10,9 +10,11 @@ Check demo [here](https://movfinder.web.app/) !!
 - Responsive Design
 - Reactive Forms/Template-driven forms 
 - Async Form Validators
+- Custom Validators
+- Custom Directives
 - JWT Authentication with Refresh Tokens
 - Authorization Route Guards
-- RxJS Data Composition
+- Data Composition with RxJS
 - Admin Panel with ngx-charts ([link](https://github.com/swimlane/ngx-charts))
 - Embedded YouTube player using the IFrame Player API
 - Business logic with Services for reusability and maintainability
