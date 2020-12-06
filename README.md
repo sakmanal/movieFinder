@@ -13,7 +13,7 @@ Check demo [here](https://movfinder.web.app/) !!
 - Custom Validators
 - Custom Directives
 - JWT Authentication with Refresh Tokens
-- Authorization Route Guards
+- Role-based Authorization Route Guards
 - Data Composition with RxJS
 - Admin Panel with ngx-charts ([link](https://github.com/swimlane/ngx-charts))
 - Embedded YouTube player using the IFrame Player API
