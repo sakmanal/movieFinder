@@ -8,19 +8,26 @@ Check demo [here](https://movfinder.web.app/) !!
 
 - Angular Material UI component library
 - Responsive Design
-- Reactive Forms/Template-driven forms 
-- Async Form Validators
-- Custom Validators
-- Custom Directives
-- JWT Authentication with Refresh Tokens
-- Role-based Authorization Route Guards
-- Data Composition with RxJS
+- Login/Register/Forgot-password Page
+- Add/Delete/Edit Movies operations
+- Movies List/Grid with searching/sorting/select-category functionality
+- Add/Remove Movies to/from Watchlist
+- Edit Movies Guard (navigate away prompt if component is dirty-contains unsaved work)
+- Movie Routing Flow with Resolver
+- Reactive Forms/Template-driven forms with Validation
+- Async Form Validators (check for already existing username/email on register form)
+- Custom Validators (for valid email, passwords matching)
+- Custom Directives (for movie star rating)
+- JWT Authentication with Refresh Tokens (with JWT Http-Token Interceptor)
+- Role-based Authorization Route Guards (support for regular users & admin users)
 - Admin Panel with ngx-charts ([link](https://github.com/swimlane/ngx-charts))
+- Admin Table retrieving/searching Movies through HTTP
+- Data Composition with RxJS
 - Embedded YouTube player using the IFrame Player API
 - Business logic with Services for reusability and maintainability
 - Modular design - Lazy-Loading Modules (Dividing the application into Core, Shared & Feature Modules)
 - Unidirectional data flow with Container and Presentation components pattern
-- Mock Server with Angular in-memory-web-api to emulate CRUD operations over a RESTy API.
+- Mock Server with Angular in-memory-web-api to emulate CRUD operations over a RESTy API
 
 ## Sample Images
 
