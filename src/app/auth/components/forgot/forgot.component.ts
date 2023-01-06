@@ -40,6 +40,6 @@ export class ForgotComponent implements OnInit {
         responce => this.toastr.success(responce.message),
         error => this.toastr.error(error)
       );
-}
+  }
 
 }
